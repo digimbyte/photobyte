@@ -1,0 +1,44 @@
+name: Build and test
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2025, macos-15]
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@4b73464bb391d4059bd26b0524d20df3927bd417 # v6.3.0
+        with:
+          go-version-file: go.mod
+      - name: Build Windows editor and codecs
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          .\scripts\build.ps1
+          "DIGIPHOTO_TEST_EXE=$((Resolve-Path .\bin\DigiPhoto.exe).Path)" >> $env:GITHUB_ENV
+          $profile = Join-Path $env:SystemRoot 'System32/spool/drivers/color/sRGB Color Space Profile.icm'
+          if (Test-Path -LiteralPath $profile) {
+              "DIGIPHOTO_TEST_ICC=$profile" >> $env:GITHUB_ENV
+          }
+      - name: Build macOS development executable
+        if: runner.os == 'macOS'
+        run: go build -o "$RUNNER_TEMP/DigiPhoto" ./cmd/digiphoto
+      - name: Test
+        run: go test ./...
+      - name: Vet
+        run: go vet ./...
+      - name: Run Windows race tests
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: .\scripts\test-race.ps1

@@ -1,0 +1,7 @@
+/.cache/
+/bin/
+/graft/
+*.dphoto
+*.dphoto-journal
+*.dphoto-wal
+*.dphoto-shm
