@@ -2,6 +2,8 @@
 
 DigiPhoto is an offline Windows x64 editor for layered raster editing, frame animation, and web and game asset export. The editor and desktop interface are written in Go. The Windows codec helper uses libpng, libwebp, and Little CMS.
 
+[CS6+ product goal](docs/goal.md)
+
 ## Run
 
 Open `DigiPhoto.exe` from the extracted Windows release ZIP or the built `bin` folder. Keep `digiphoto_codecs.dll` alongside it.
@@ -23,7 +25,7 @@ Use `Ctrl+N`, `Ctrl+O`, `Ctrl+S`, `Ctrl+Shift+S`, `Ctrl+Z`, and `Ctrl+Shift+Z` f
 
 ## Build and verify
 
-The Windows build requires Go 1.25+, CMake, and the Visual Studio 2022 C++ build tools. Run these commands from the repository root in PowerShell.
+The Windows build requires Go 1.25+ and the Visual Studio C++ build tools. Use CMake 3.21+ with Visual Studio 2022 or CMake 4.2+ with Visual Studio 2026. Run these commands from the repository root in PowerShell.
 
 ```powershell
 .\scripts\build.ps1

@@ -25,18 +25,26 @@ foreach ($dep in $deps) {
     }
 }
 
+$vswhere = Join-Path ${env:ProgramFiles(x86)} 'Microsoft Visual Studio/Installer/vswhere.exe'
+if (-not (Test-Path -LiteralPath $vswhere -PathType Leaf)) {
+    throw 'Install the C++ build tools from Visual Studio 2022 or 2026.'
+}
+$vs = & $vswhere -latest -products '*' -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -version '[17.0,19.0)' -format json |
+    ConvertFrom-Json | Select-Object -First 1
+if (-not $vs) {
+    throw 'Install the C++ build tools from Visual Studio 2022 or 2026.'
+}
+$major = ([version]$vs.installationVersion).Major
+$generator = if ($major -eq 18) { 'Visual Studio 18 2026' } else { 'Visual Studio 17 2022' }
+$bundledCmake = Join-Path $vs.installationPath 'Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake.exe'
 $cmake = (Get-Command cmake -ErrorAction SilentlyContinue).Source
-if (-not $cmake) {
-    $vswhere = Join-Path ${env:ProgramFiles(x86)} 'Microsoft Visual Studio/Installer/vswhere.exe'
-    if (Test-Path -LiteralPath $vswhere) {
-        $vs = & $vswhere -latest -products '*' -property installationPath
-        if ($vs) { $cmake = Join-Path $vs 'Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake.exe' }
-    }
+if ((-not $cmake -or $major -eq 18) -and (Test-Path -LiteralPath $bundledCmake -PathType Leaf)) {
+    $cmake = $bundledCmake
 }
 if (-not $cmake -or -not (Test-Path -LiteralPath $cmake)) {
-    throw 'Building the native codecs requires CMake and the Visual Studio 2022 C++ build tools.'
+    throw 'Install CMake 3.21 or later for Visual Studio 2022, or CMake 4.2 or later for Visual Studio 2026.'
 }
-$build = Join-Path $cache 'build'
+$build = Join-Path $cache $(if ($major -eq 18) { 'build-vs18' } else { 'build' })
 $keys = @('DIGI_PNG', 'DIGI_ZLIB', 'DIGI_LCMS', 'DIGI_WEBP')
 $options = for ($i = 0; $i -lt $deps.Count; $i++) {
     $sourceDir = (Join-Path $sources $deps[$i].Dir).Replace('\', '/')
@@ -45,7 +53,7 @@ $options = for ($i = 0; $i -lt $deps.Count; $i++) {
 $previousTracking = $env:TrackFileAccess
 $env:TrackFileAccess = 'false'
 try {
-    & $cmake -S (Join-Path $root 'native') -B $build -G 'Visual Studio 17 2022' -A x64 @options
+    & $cmake -S (Join-Path $root 'native') -B $build -G $generator -A x64 @options
     if ($LASTEXITCODE -ne 0) { throw 'Native codec configuration failed.' }
     & $cmake --build $build --config Release --target digiphoto_codecs --parallel
     if ($LASTEXITCODE -ne 0) { throw 'Native codec build failed.' }
