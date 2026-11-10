@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Enclose and fill</title>
+  <path d="M5 18C1 11 6 5 14 5c5 0 8 3 7 7-1.5 5-8 6-12 5.5-2.8-.4-4 1-4 3" stroke-dasharray="2.35 2.55"/>
+  <path d="M13 8.5c1.5 2 3 3.3 3 5a3 3 0 0 1-6 0c0-1.7 1.5-3 3-5Z" stroke="#70C7F5"/>
+</svg>

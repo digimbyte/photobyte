@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Multibrush</title>
+  <g transform="translate(0.2681 0.1446) scale(0.988)">
+    <path d="m5 13 5.8-8c1.2-1.5 3.6 0 2.4 1.7L7.6 15M5 13c-2.2.2-3.2 2.7-2.3 5 2.6-.3 4.7-1.1 4.9-3"/>
+    <path d="m13.5 15 5.3-8c1.2-1.5 3.5.2 2.3 1.8l-5 8m-2.6-1.8c-2.4 0-3.6 2.7-2.7 5 2.8-.3 4.9-1.2 5.3-3.2" stroke="#70C7F5"/>
+  </g>
+</svg>

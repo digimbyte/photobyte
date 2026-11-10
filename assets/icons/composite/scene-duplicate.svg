@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Duplicate 3D</title>
+  <g transform="translate(0 -0.75) scale(1)">
+    <path d="m8 4 5 3v6l-5 3-5-3V7Zm6 5 6 3.5v6L15 22l-5-3v-3" stroke="#B7A5F6"/>
+    <path d="m3 7 5 3 5-3m-5 3v6" stroke="#70C7F5"/>
+  </g>
+</svg>

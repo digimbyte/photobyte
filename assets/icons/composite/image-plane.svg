@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Image plane 3D</title>
+  <polygon points="4,7 18,4 20,17 6,20"/>
+  <path d="m6 16 4-6 3 2 3-4 3 5" stroke="#B7A5F6"/>
+  <circle cx="10" cy="8.5" r="1.15" stroke="#70C7F5"/>
+</svg>

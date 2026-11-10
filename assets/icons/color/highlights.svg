@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Highlights</title>
+  <circle cx="12" cy="12" r="8"/>
+  <path d="M5.6 7.2h12.8M8.2 5h7.6M4.5 10h15" stroke="#F4A695"/>
+  <g transform="translate(12 14.7) scale(0.57)">
+    <path d="M0-4 1.2-1.2 4 0 1.2 1.2 0 4-1.2 1.2-4 0-1.2-1.2Z" stroke="#F4A695"/>
+  </g>
+</svg>

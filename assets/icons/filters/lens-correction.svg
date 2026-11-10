@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Lens correction</title>
+  <path d="M5 5c-2.3 5-2.3 9 0 14m14-14c2.3 5 2.3 9 0 14M5 5c5-2.3 9-2.3 14 0M5 19c5 2.3 9 2.3 14 0" stroke="#B7A5F6"/>
+  <rect x="7.5" y="7.5" width="9" height="9" rx="1" stroke="#70C7F5"/>
+  <path d="m6 6 2 2m8 8 2 2" stroke="#70C7F5" stroke-width="1.35"/>
+</svg>

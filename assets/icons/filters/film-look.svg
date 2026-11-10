@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Film Look Creator</title>
+  <g transform="translate(0.2857 0.2857) scale(0.9762)">
+    <g transform="translate(0 0) scale(0.78)">
+      <rect x="3" y="5" width="18" height="14" rx="2"/>
+      <path d="M7 5v14m10-14v14M3 10h4m-4 4h4m10-4h4m-4 4h4"/>
+    </g>
+    <g transform="translate(18 17) scale(0.93)">
+      <path d="M0-4 1.2-1.2 4 0 1.2 1.2 0 4-1.2 1.2-4 0-1.2-1.2Z" stroke="#B7A5F6"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Pick 3D material</title>
+  <g transform="translate(0.8182 0.1193) scale(0.9318)">
+    <g transform="translate(0 0) scale(0.73)">
+      <circle cx="12" cy="12" r="8.5"/>
+      <path d="M7 6c1.5 6 7.3 10.7 13.3 10.1" stroke="#B7A5F6"/>
+      <path d="M9 5a6.5 6.5 0 0 0-2.8 4.1" stroke="#70C7F5" stroke-width="2.4"/>
+    </g>
+    <path d="m12 19 6-6 2.6 2.6-6 6-3 1.1Z" stroke="#B7A5F6"/>
+    <path d="m17 14 2.4 2.4" stroke="#70C7F5" stroke-width="1.35"/>
+  </g>
+</svg>

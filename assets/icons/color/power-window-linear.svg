@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Linear power window</title>
+  <g transform="translate(0.8182 0.8182) scale(0.9318)">
+    <path d="m4 17 16-10m-14 14 16-10m-20 2L18 3" stroke="#70C7F5"/>
+    <rect x="10.85" y="10.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  </g>
+</svg>

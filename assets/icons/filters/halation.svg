@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Halation</title>
+  <circle cx="12" cy="12" r="8.4" stroke="#F4A695" opacity=".55"/>
+  <circle cx="12" cy="12" r="6.2" stroke="#F4A695"/>
+  <circle cx="12" cy="12" r="3.7" stroke="#70C7F5"/>
+  <circle cx="12" cy="12" r="1.3" stroke="none" fill="#B7A5F6"/>
+</svg>

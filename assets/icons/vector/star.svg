@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Star</title>
+  <polygon points="12,3.5 14.6,9 20.8,10 16.4,14.2 17.5,20.4 12,17.4 6.5,20.4 7.6,14.2 3.2,10 9.4,9"/>
+  <circle cx="12" cy="12" r="1.1" stroke="none" fill="#70C7F5"/>
+</svg>

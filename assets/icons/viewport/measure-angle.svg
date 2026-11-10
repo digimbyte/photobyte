@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Measure angle</title>
+  <g transform="translate(0.5151 0.1446) scale(0.988)">
+    <path d="M3 19h18M3 19 17 4"/>
+    <path d="M11 19a8 8 0 0 0-2.3-5.7" stroke="#70C7F5"/>
+    <circle cx="3" cy="19" r="1.6" stroke="none" fill="#70C7F5"/>
+  </g>
+</svg>

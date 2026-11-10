@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Assisted deblur</title>
+  <rect x="4" y="6" width="9" height="12" rx="1" opacity=".55"/>
+  <path d="M6 10h5m-5 3h5m-5 2h5" stroke="#B7A5F6" opacity=".55"/>
+  <g transform="translate(17.4 13) scale(1)">
+    <path d="M0-4 1.2-1.2 4 0 1.2 1.2 0 4-1.2 1.2-4 0-1.2-1.2Z" stroke="#B7A5F6"/>
+  </g>
+</svg>

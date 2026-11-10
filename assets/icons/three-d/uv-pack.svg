@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Pack UV islands</title>
+  <rect x="4" y="4" width="16" height="16" rx="1"/>
+  <polygon points="6,6 13,6 11,12 6,12" stroke="#B7A5F6"/>
+  <polygon points="15,6 18,8 18,13 14,13" stroke="#B7A5F6"/>
+  <polygon points="6,15 13,14 18,18 6,18" stroke="#70C7F5"/>
+</svg>

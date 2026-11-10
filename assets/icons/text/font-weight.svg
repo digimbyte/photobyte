@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Font weight</title>
+  <path d="M5 4.5h7a3.7 3.7 0 0 1 0 7.4H5m7 0h1a3.8 3.8 0 0 1 0 7.6H5V4.5" stroke-width="2.7"/>
+  <line x1="19" y1="5" x2="19" y2="19" stroke="#70C7F5"/>
+</svg>

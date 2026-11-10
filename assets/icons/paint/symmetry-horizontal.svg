@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Horizontal paint symmetry</title>
+  <line x1="12" y1="3" x2="12" y2="21" stroke="#70C7F5" stroke-dasharray="2.35 2.55"/>
+  <path d="m4 16 4-8m8 0 4 8"/>
+</svg>

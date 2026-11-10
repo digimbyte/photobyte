@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Image socket</title>
+  <rect x="5" y="5" width="14" height="14" rx="2" stroke="#B7A5F6"/>
+  <path d="m7.5 15.5 3.3-4 2.5 2.2 3-3.4" stroke="#70C7F5" stroke-width="1.35"/>
+  <circle cx="9" cy="9" r="1.2" stroke="none" fill="#70C7F5"/>
+</svg>

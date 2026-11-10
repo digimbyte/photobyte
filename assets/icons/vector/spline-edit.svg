@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Edit spline handles</title>
+  <path d="M3.7 17.5C9 18 7 7 12 9s4 9 8 7.5"/>
+  <line x1="7" y1="5" x2="17" y2="13" stroke="#B7A5F6"/>
+  <rect x="2.5500000000000003" y="16.35" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  <rect x="18.85" y="15.35" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  <rect x="10.85" y="7.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  <circle cx="7" cy="5" r="1.35" stroke="none" fill="#B7A5F6"/>
+  <circle cx="17" cy="13" r="1.35" stroke="none" fill="#B7A5F6"/>
+</svg>

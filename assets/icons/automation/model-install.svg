@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Install model</title>
+  <g transform="translate(0.25 0.25) scale(1)">
+    <g transform="translate(0 0) scale(0.72)">
+      <rect x="6" y="6" width="12" height="12" rx="2"/>
+      <path d="M9 3v3m6-3v3m3 3h3m-3 6h3m-6 3v3m-6-3v3m-6-6h3m-3-6h3" stroke="#70C7F5"/>
+      <path d="m9 13 3-4 3 4-3 3Z" stroke="#B7A5F6"/>
+      <circle cx="12" cy="13" r="1.05" stroke="none" fill="#70C7F5"/>
+    </g>
+    <path d="M18 12v9m-3-3 3 3 3-3" stroke="#B7A5F6"/>
+  </g>
+</svg>

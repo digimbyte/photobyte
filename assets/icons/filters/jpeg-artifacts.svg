@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>JPEG artifact reduction</title>
+  <path d="M4 4h16v16H4Z"/>
+  <path d="M4 9.3h16M4 14.7h16M9.3 4v16m5.4-16v16" stroke="#70C7F5" stroke-width="1.35"/>
+  <path d="m5 17 5-5 4 2 5-4" stroke="#B7A5F6" stroke-width="2.4"/>
+  <line x1="14" y1="7" x2="20" y2="7" stroke="#F4A695"/>
+</svg>

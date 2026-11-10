@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Wipe transition</title>
+  <rect x="4" y="6" width="16" height="12" rx="1"/>
+  <path d="m9 6 6 12m-9-6h12m-3-3 3 3-3 3" stroke="#70C7F5"/>
+</svg>

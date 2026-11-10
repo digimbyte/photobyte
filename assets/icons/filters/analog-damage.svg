@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Analog damage</title>
+  <rect x="3" y="5" width="18" height="14" rx="2"/>
+  <path d="M7 5v14m10-14v14M3 10h4m-4 4h4m10-4h4m-4 4h4"/>
+  <path d="m10 7 4 4-4 2 4 4" stroke="#F4A695" stroke-width="2.4"/>
+</svg>

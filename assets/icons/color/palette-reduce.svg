@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Reduce palette</title>
+  <rect x="3.5" y="5" width="17" height="14" rx="1"/>
+  <path d="M8 5v14m4-14v14m4-14v14" stroke-width="1.35"/>
+  <path d="M8 5h4v14H8Zm8 0h4.5v14H16Z" stroke="#70C7F5" fill="#70C7F5" fill-opacity=".3"/>
+</svg>

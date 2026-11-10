@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Pixel-perfect</title>
+  <rect x="4" y="4" width="16" height="16" rx="1"/>
+  <path d="M4 9.3h16m-16 5.4h16m-10.7-10.7v16m5.4-16v16" stroke-width="1.35"/>
+  <path d="M9.3 9.3h5.4v5.4H9.3Z" stroke="#70C7F5" fill="#70C7F5" fill-opacity=".52"/>
+</svg>

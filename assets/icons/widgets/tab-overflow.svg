@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Tab overflow</title>
+  <path d="M3 7h6l2 3h10v9H3Z"/>
+  <path d="M11 7h5l2 3" stroke="#70C7F5"/>
+  <circle cx="8" cy="15" r="1.45" stroke="none" fill="#70C7F5"/>
+  <circle cx="12" cy="15" r="1.45" stroke="none" fill="#70C7F5"/>
+  <circle cx="16" cy="15" r="1.45" stroke="none" fill="#70C7F5"/>
+</svg>

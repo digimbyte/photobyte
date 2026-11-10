@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Render region</title>
+  <path d="M3 4h18v16H3Z"/>
+  <rect x="8" y="7" width="10" height="9" rx="1" stroke="#B7A5F6" stroke-dasharray="2.35 2.55"/>
+  <path d="m11 9 4 2.5-4 2.5Z" stroke="#70C7F5"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Mesh island select</title>
+  <g transform="translate(-0.2024 0.2857) scale(0.9762)">
+    <path d="m3 7 6-3 3 7-7 2Zm10 4 6-3 3 9-7 3Z"/>
+    <path d="M3 4h5M3 4v3m8 10v3H6" stroke="#B7A5F6" stroke-dasharray="2.35 2.55"/>
+    <circle cx="17.5" cy="14" r="1.2" stroke="none" fill="#B7A5F6"/>
+  </g>
+</svg>

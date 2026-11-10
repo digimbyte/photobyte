@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>White balance</title>
+  <g transform="translate(0.75 0) scale(1)">
+    <path d="M12 4v15m-5 1h10M5 8h14M8 8l-3 6H2l3-6m11 0-3 6h6l-3-6" stroke="#70C7F5"/>
+    <circle cx="12" cy="4" r="1.4" stroke="none" fill="#70C7F5"/>
+  </g>
+</svg>

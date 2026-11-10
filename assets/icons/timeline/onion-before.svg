@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Onion skin before</title>
+  <path d="M11 6H4v13h12v-5" stroke="#B7A5F6" stroke-dasharray="2.35 2.55"/>
+  <rect x="9" y="5" width="11" height="11" rx="1"/>
+  <path d="M11 10H5m2-2-2 2 2 2" stroke="#B7A5F6"/>
+</svg>

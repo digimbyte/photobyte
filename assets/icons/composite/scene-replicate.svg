@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Replicate 3D</title>
+  <g transform="translate(-0.2024 0.2857) scale(0.9762)">
+    <path d="m7 3 4 2.5v4L7 12 3 9.5v-4Zm8 5 4 2.5v4L15 17l-4-2.5v-4Zm1 10 3 2 3-2" stroke="#B7A5F6"/>
+    <circle cx="7" cy="7.5" r="1" stroke="none" fill="#70C7F5"/>
+    <circle cx="15" cy="12.5" r="1" stroke="none" fill="#70C7F5"/>
+  </g>
+</svg>

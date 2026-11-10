@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Face refinement</title>
+  <path d="M6 9a6 6 0 0 1 12 0v4c0 4-4 7-6 7s-6-3-6-7Z"/>
+  <circle cx="9.4" cy="10.5" r="1" stroke="none" fill="#70C7F5"/>
+  <circle cx="14.6" cy="10.5" r="1" stroke="none" fill="#70C7F5"/>
+  <path d="M10 15q2 2 4 0" stroke="#70C7F5"/>
+</svg>

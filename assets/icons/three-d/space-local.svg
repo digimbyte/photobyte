@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Local axes</title>
+  <g transform="translate(1 1) scale(0.7)">
+    <path d="M12 3 21 8v9l-9 5-9-5V8Z"/>
+    <path d="m3 8 9 5 9-5m-9 5v9"/>
+  </g>
+  <path d="m15 13 2-4m-2 4 5 2m-5-2-3 4" stroke="#B7A5F6" stroke-width="2.4"/>
+  <circle cx="15" cy="13" r="1.2" stroke="none" fill="#B7A5F6"/>
+</svg>

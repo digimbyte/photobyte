@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Render preview</title>
+  <rect x="3" y="4" width="18" height="16" rx="1"/>
+  <g transform="translate(4 4) scale(0.67)">
+    <path d="M2.8 12s3.4-6 9.2-6 9.2 6 9.2 6-3.4 6-9.2 6-9.2-6-9.2-6Z" stroke="#70C7F5"/>
+    <circle cx="12" cy="12" r="2.4" stroke="#70C7F5"/>
+  </g>
+</svg>

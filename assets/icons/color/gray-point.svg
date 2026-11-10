@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Midpoint</title>
+  <circle cx="12" cy="12" r="8.2"/>
+  <path d="M12 3.8v16.4" stroke="#70C7F5"/>
+  <path d="M12 3.8a8.2 8.2 0 0 0 0 16.4Z" stroke="#70C7F5" fill="#70C7F5" fill-opacity=".2"/>
+</svg>

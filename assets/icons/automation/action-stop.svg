@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Stop action</title>
+  <g transform="translate(0.2857 0.2857) scale(0.9762)">
+    <g transform="translate(0 0) scale(0.72)">
+      <path d="m13 3-8 10h6l-1 8 9-12h-6Z" stroke="#70C7F5"/>
+    </g>
+    <rect x="14.5" y="14.5" width="7" height="7" rx="1" stroke="#F4A695"/>
+  </g>
+</svg>

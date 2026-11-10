@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Generative expand</title>
+  <rect x="7" y="8" width="10" height="8" rx="1"/>
+  <path d="M3 7V4h4m10 0h4v3m0 10v3h-4m-10 0H3v-3" stroke="#B7A5F6" stroke-dasharray="2.35 2.55"/>
+  <g transform="translate(18 6) scale(0.69)">
+    <path d="M0-4 1.2-1.2 4 0 1.2 1.2 0 4-1.2 1.2-4 0-1.2-1.2Z" stroke="#70C7F5"/>
+  </g>
+</svg>

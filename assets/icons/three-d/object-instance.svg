@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Instance object</title>
+  <g transform="translate(0.2857 0.2857) scale(0.9762)">
+    <g transform="translate(0 0) scale(0.7)">
+      <path d="M12 3 21 8v9l-9 5-9-5V8Z"/>
+      <path d="m3 8 9 5 9-5m-9 5v9"/>
+    </g>
+    <path d="m15.3 16.7 3-3a1.9 1.9 0 0 1 2.7 2.7l-2.4 2.4a1.8 1.8 0 0 1-2.5 0m1.9-1.2-3 3a1.9 1.9 0 0 1-2.7-2.7l2.4-2.4a1.8 1.8 0 0 1 2.5 0" stroke="#B7A5F6"/>
+  </g>
+</svg>

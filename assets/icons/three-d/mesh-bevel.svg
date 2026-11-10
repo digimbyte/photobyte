@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Bevel edges</title>
+  <path d="M4 7 7 4h10l3 3v10l-3 3H7l-3-3Z"/>
+  <path d="M7 4v3H4m13-3v3h3m0 10h-3v3M4 17h3v3" stroke="#B7A5F6"/>
+</svg>

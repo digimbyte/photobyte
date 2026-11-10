@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Reset transform</title>
+  <g transform="translate(0 0) scale(0.83)">
+    <path d="M6 6h12v12H6Z"/>
+    <rect x="4.85" y="4.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+    <rect x="16.85" y="4.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+    <rect x="4.85" y="16.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+    <rect x="16.85" y="16.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+    <circle cx="12" cy="12" r="1.15" stroke="none" fill="#70C7F5"/>
+  </g>
+  <path d="M16 16a3 3 0 1 1 2.6 5m-3.4-7v2.7h2.7" stroke="#70C7F5"/>
+</svg>

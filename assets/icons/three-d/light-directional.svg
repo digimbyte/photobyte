@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Directional light</title>
+  <path d="m6 6 12 12m-5 0h5v-5m-4-9 6 6m-16 4 6 6" stroke="#B7A5F6"/>
+  <circle cx="5" cy="5" r="1.5" stroke="none" fill="#70C7F5"/>
+</svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Reflected gradient</title>
+  <rect x="3" y="5" width="18" height="14" rx="1.5"/>
+  <path d="M12 6v12m-3-11v10m6-10v10m-9-8v6m12-6v6" stroke="#70C7F5"/>
+</svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Path selection</title>
+  <path d="m4 3.5 4.3 16.8 3.3-5.1 5.8-1.1L4 3.5Z" stroke="#70C7F5" fill="#70C7F5" fill-opacity=".34"/>
+  <path d="m13 19 3-2 3 2" stroke-dasharray="2.35 2.55"/>
+</svg>

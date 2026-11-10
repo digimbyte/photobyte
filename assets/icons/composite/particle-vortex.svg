@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Particle vortex</title>
+  <path d="M5 14c-1.2-5 3.8-9.4 9.6-8.1 5.3 1.1 6.7 7 3 10-3.2 2.6-7.3 1.8-8.8-.8-1.4-2.4.7-4.7 2.9-4.4" stroke="#B7A5F6"/>
+  <circle cx="12" cy="11" r="1.45" stroke="none" fill="#70C7F5"/>
+  <circle cx="6" cy="18" r="1.1" stroke="none" fill="#B7A5F6"/>
+</svg>

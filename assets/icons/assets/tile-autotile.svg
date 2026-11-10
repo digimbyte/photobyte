@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Autotile rule</title>
+  <path d="M4 4h16v16H4Z"/>
+  <path d="M4 9h16m-16 6h16M9 4v16m6-16v16" stroke="#B7A5F6" stroke-width="1.35"/>
+  <path d="M9 9h6v6H9Z" stroke="#70C7F5" fill="#70C7F5" fill-opacity=".35"/>
+</svg>

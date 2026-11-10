@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Solid shading</title>
+  <g transform="translate(0.2857 -0.2024) scale(0.9762)">
+    <path d="M12 3 21 8v9l-9 5-9-5V8Z"/>
+    <polygon points="3,8 12,13 12,22 3,17" stroke="#B7A5F6" fill="#B7A5F6" fill-opacity=".32"/>
+    <polygon points="12,13 21,8 21,17 12,22" stroke="#B7A5F6" fill="#B7A5F6" fill-opacity=".48"/>
+  </g>
+</svg>

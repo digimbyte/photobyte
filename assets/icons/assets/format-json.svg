@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>JSON metadata</title>
+  <path d="M6 3h8l4 4v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/>
+  <path d="M14 3v5h4" stroke="#70C7F5"/>
+  <path d="M10.5 10H9v3l-1.2 1L9 15v3h1.5m2-8H14v3l1.2 1L14 15v3h-1.5" stroke="#70C7F5" stroke-width="1.35"/>
+</svg>

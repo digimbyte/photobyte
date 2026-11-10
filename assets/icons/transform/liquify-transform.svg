@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Liquify transform</title>
+  <path d="M4 5h16v4.5c-3 .8-3.7 3.3 0 4.5V19H4Z"/>
+  <path d="M8 5c1 5-1 9 0 14m5-14c1 5-2 8 0 14M4 12c5 0 8 1 13 0" stroke="#70C7F5"/>
+</svg>

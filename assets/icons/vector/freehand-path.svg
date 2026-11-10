@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Freehand path</title>
+  <g transform="translate(0.2857 0.2857) scale(0.9762)">
+    <path d="M3.5 16.4c3.7-1 4.5-7.4 7.7-7.4 2.9 0 2.3 5.4 5.4 5.4 1.8 0 2.7-2 3.9-4.4"/>
+    <rect x="2.35" y="15.249999999999998" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+    <rect x="19.35" y="8.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  </g>
+</svg>

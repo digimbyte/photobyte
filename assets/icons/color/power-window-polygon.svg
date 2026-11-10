@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Polygon power window</title>
+  <polygon points="7,6 17,5 19,14 12,19 5,14"/>
+  <rect x="5.85" y="4.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  <rect x="15.85" y="3.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  <rect x="17.85" y="12.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  <rect x="10.85" y="17.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  <rect x="3.85" y="12.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+</svg>

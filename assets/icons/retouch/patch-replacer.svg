@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Patch replacer</title>
+  <rect x="3" y="4" width="9" height="9" rx="1" stroke-dasharray="2.35 2.55"/>
+  <rect x="12" y="11" width="9" height="9" rx="1" stroke="#70C7F5"/>
+  <path d="m7 9 10 7m-4 0h4v-4" stroke="#70C7F5"/>
+</svg>

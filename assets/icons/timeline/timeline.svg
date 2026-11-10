@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Timeline</title>
+  <path d="M3 5h18M4 8h6v4H4Zm9 0h7v4h-7ZM4 15h10v4H4Z"/>
+  <path d="M12 3v18" stroke="#70C7F5"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Mesh array</title>
+  <g transform="translate(0.7965 0.7965) scale(0.9535)">
+    <g transform="translate(0 0) scale(0.55)">
+      <path d="M12 3 21 8v9l-9 5-9-5V8Z"/>
+      <path d="m3 8 9 5 9-5m-9 5v9"/>
+    </g>
+    <g transform="translate(5.6 4.2) scale(0.55)">
+      <path d="M12 3 21 8v9l-9 5-9-5V8Z"/>
+      <path d="m3 8 9 5 9-5m-9 5v9"/>
+    </g>
+    <g transform="translate(10.5 9) scale(0.55)">
+      <path d="M12 3 21 8v9l-9 5-9-5V8Z"/>
+      <path d="m3 8 9 5 9-5m-9 5v9"/>
+    </g>
+  </g>
+</svg>

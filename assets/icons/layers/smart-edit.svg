@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Edit smart object</title>
+  <g transform="translate(0 -0.25) scale(1)">
+    <g transform="translate(0 0) scale(0.73)">
+      <path d="M4 5h12l4 4v11H4Z"/>
+      <path d="M16 5v4h4"/>
+      <polygon points="11.5,11 15.7,13.3 11.5,15.6 7.3,13.3" stroke="#70C7F5"/>
+      <path d="M7.3 13.3v3.2l4.2 2.3 4.2-2.3v-3.2m-4.2 2.3v3.2" stroke="#70C7F5" stroke-width="1.35"/>
+    </g>
+    <path d="m13.5 19 5.2-5.2 2.5 2.5-5.2 5.2h-2.5Z" stroke="#70C7F5"/>
+  </g>
+</svg>

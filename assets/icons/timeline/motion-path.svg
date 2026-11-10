@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Motion path</title>
+  <path d="M4 18c5 0 4-12 10-12 2 0 4 1 6 3" stroke="#70C7F5" stroke-dasharray="2.35 2.55"/>
+  <path d="m16 9 4 .3-.7-4" stroke="#70C7F5"/>
+  <rect x="2.85" y="16.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+</svg>

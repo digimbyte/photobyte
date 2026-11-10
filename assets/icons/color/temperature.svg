@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Temperature</title>
+  <path d="M9 14V6a3 3 0 0 1 6 0v8a4.3 4.3 0 1 1-6 0Z"/>
+  <path d="M12 7v9" stroke="#F4A695" stroke-width="2.4"/>
+  <circle cx="12" cy="17" r="1.8" stroke="none" fill="#F4A695"/>
+  <path d="M17.5 7h2m-2 4h2" stroke="#70C7F5"/>
+</svg>

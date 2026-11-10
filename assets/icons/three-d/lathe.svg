@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Lathe / Revolve</title>
+  <path d="M12 3v18" stroke="#B7A5F6" stroke-dasharray="2.35 2.55"/>
+  <path d="M12 4c-5 4-7 7-7 10 0 3.3 3.3 5 7 5"/>
+  <ellipse cx="12" cy="14" rx="7" ry="2.5" stroke="#B7A5F6"/>
+  <path d="M13 5c4 1 5 3 4 5m-.6-2.8.6 2.8 2.6-1" stroke="#70C7F5"/>
+</svg>

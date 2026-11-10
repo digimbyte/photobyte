@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Spot healing brush</title>
+  <g transform="translate(0.2681 0.2681) scale(0.988)">
+    <g transform="translate(0 0) scale(0.74)">
+      <path d="m4 14 10-10a3.3 3.3 0 0 1 4.6 0L20 5.4a3.3 3.3 0 0 1 0 4.6L10 20a3.3 3.3 0 0 1-4.6 0L4 18.6a3.3 3.3 0 0 1 0-4.6Z"/>
+      <path d="m8 10 6 6m-4-8 6 6" stroke="#70C7F5"/>
+    </g>
+    <g transform="translate(18 17) scale(0.85)">
+      <path d="M0-4 1.2-1.2 4 0 1.2 1.2 0 4-1.2 1.2-4 0-1.2-1.2Z" stroke="#70C7F5"/>
+    </g>
+  </g>
+</svg>

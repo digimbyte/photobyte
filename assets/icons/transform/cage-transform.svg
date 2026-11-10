@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Cage transform</title>
+  <path d="M4 6 13 4l7 6-2 10-12-2Z"/>
+  <rect x="2.85" y="4.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  <rect x="11.85" y="2.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  <rect x="18.85" y="8.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  <rect x="16.85" y="18.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  <rect x="4.85" y="16.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  <path d="m4 6 14 14m-12-2 14-8" stroke="#70C7F5" opacity=".55"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Conditional action</title>
+  <path d="M12 3v4m0 8v2l-5 3m5-3 5 3" stroke="#70C7F5"/>
+  <polygon points="12,7 16,11 12,15 8,11" stroke="#B7A5F6"/>
+  <circle cx="7" cy="20" r="1.2" stroke="none" fill="#70C7F5"/>
+  <circle cx="17" cy="20" r="1.2" stroke="none" fill="#F4A695"/>
+</svg>

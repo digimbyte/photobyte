@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Import LUT</title>
+  <path d="m9 4 6 3.5V14l-6 3.5L3 14V7.5Zm-6 3.5L9 11l6-3.5M9 11v6.5"/>
+  <path d="M18 11v9m-3-3 3 3 3-3" stroke="#70C7F5"/>
+</svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Multi-pass composite</title>
+  <path d="M3 6h13v8H3Zm4 12h13V8h-4m-6 13h11v-9h-1"/>
+  <path d="M5.5 10h8" stroke="#B7A5F6" stroke-width="2.4"/>
+</svg>

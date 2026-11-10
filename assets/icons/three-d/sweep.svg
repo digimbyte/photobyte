@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Sweep profile</title>
+  <path d="M4 17c3-8 9-12 15-10" stroke="#B7A5F6" stroke-dasharray="2.35 2.55"/>
+  <ellipse cx="5.5" cy="17" rx="2.4" ry="3.4"/>
+  <ellipse cx="18.5" cy="8.5" rx="2.4" ry="3.4"/>
+  <path d="M5 13.7C8 8 12 4.5 18.5 5m-13 15.5C8.5 14 13 10 18.5 12" stroke="#B7A5F6"/>
+</svg>

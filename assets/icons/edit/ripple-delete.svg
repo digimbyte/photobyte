@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Ripple delete</title>
+  <path d="M3 8h6v8H3Zm12 0h6v8h-6Z"/>
+  <path d="m7 5 3 2-3 2m10-4-3 2 3 2m-6 4 2 2m0-2-2 2" stroke="#F4A695"/>
+</svg>

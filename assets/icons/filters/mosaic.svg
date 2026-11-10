@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Mosaic</title>
+  <path d="M4 4h16v16H4Z"/>
+  <path d="M4 9.3h16M4 14.7h16M9.3 4v16m5.4-16v16" stroke="#70C7F5" stroke-width="1.35"/>
+  <path d="M4 4h5.3v5.3H4Zm10.7 5.3H20v5.4h-5.3Zm-5.4 5.4h5.4V20H9.3Z" stroke="#B7A5F6" fill="#B7A5F6" fill-opacity=".35"/>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Gradient stop</title>
+  <line x1="3" y1="9" x2="21" y2="9"/>
+  <path d="m8 14 4-4 4 4v5H8Z" stroke="#70C7F5"/>
+  <path d="M4 7v4m16-4v4"/>
+</svg>

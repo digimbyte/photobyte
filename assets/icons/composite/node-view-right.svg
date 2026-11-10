@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>View node on right</title>
+  <path d="M4 6h16v12H4Z"/>
+  <path d="M12 6v12m1-11h6v10h-6Z" stroke="#70C7F5" fill="#70C7F5" fill-opacity=".35"/>
+  <circle cx="16" cy="12" r="1.3" stroke="none" fill="#70C7F5"/>
+</svg>

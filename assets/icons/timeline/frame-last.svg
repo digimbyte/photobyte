@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Last frame</title>
+  <polygon points="4,6 10.5,12 4,18"/>
+  <polygon points="12,6 18.5,12 12,18" stroke="#70C7F5"/>
+  <path d="M21 6v12"/>
+</svg>

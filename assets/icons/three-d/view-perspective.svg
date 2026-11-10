@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Perspective view</title>
+  <path d="m3 5 12 3.5v7L3 19Zm12 3.5 6-4m-6 11 6 4M3 5l18 7-18 7" stroke="#B7A5F6"/>
+  <circle cx="21" cy="12" r="1.25" stroke="none" fill="#70C7F5"/>
+</svg>

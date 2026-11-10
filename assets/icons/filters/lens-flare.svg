@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Lens flare</title>
+  <path d="M12 3v4m0 10v4m9-9h-4M7 12H3m2.6-6.4 2.8 2.8m7.2 7.2 2.8 2.8m0-12.8-2.8 2.8m-7.2 7.2-2.8 2.8" stroke="#B7A5F6"/>
+  <circle cx="12" cy="12" r="3" stroke="#70C7F5"/>
+  <circle cx="6" cy="18" r="1.25" stroke="none" fill="#F4A695"/>
+  <circle cx="18" cy="6" r="1.2" stroke="none" fill="#B7A5F6"/>
+</svg>

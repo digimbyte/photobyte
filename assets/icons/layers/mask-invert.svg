@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Invert mask</title>
+  <rect x="3" y="5" width="18" height="14" rx="2"/>
+  <path d="M12 5v14" stroke="#70C7F5"/>
+  <path d="M12 8a4.7 4 0 0 0 0 8" stroke="#70C7F5" fill="#70C7F5" fill-opacity=".3"/>
+  <path d="M12 8a4.7 4 0 0 1 0 8"/>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Camera tracker</title>
+  <g transform="translate(0.3362 0.3362) scale(0.9425)">
+    <g transform="translate(0 0) scale(0.75)">
+      <rect x="3" y="7" width="12" height="10" rx="1"/>
+      <polygon points="15,10 21,7 21,17 15,14" stroke="#B7A5F6"/>
+    </g>
+    <circle cx="17.5" cy="17.5" r="3" stroke="#B7A5F6"/>
+    <path d="M17.5 12.5v2m0 6v2m-5-5h2m6 0h2" stroke="#B7A5F6" stroke-width="1.35"/>
+  </g>
+</svg>

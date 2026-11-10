@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Render queue</title>
+  <path d="M4 5h10v4H4Zm0 5h10v4H4Zm0 5h10v4H4Z"/>
+  <path d="M18 19V7m-2.5 2.5L18 7l2.5 2.5" stroke="#70C7F5"/>
+</svg>

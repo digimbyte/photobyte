@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Image sequence</title>
+  <g transform="translate(-0.75 0) scale(1)">
+    <path d="M4 5h12v10H4Zm3 13h12V8m-9 13h12V11"/>
+    <path d="m5 13 3-3 2 1.5 3-3 2 2.5" stroke="#70C7F5"/>
+  </g>
+</svg>

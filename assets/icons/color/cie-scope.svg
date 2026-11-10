@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>CIE chromaticity scope</title>
+  <path d="M4 4v16h16" stroke="#70C7F5"/>
+  <path d="M7 17c.3-8.5 4.6-13.4 7-13.4 3 0 1.8 6.2 4.5 11.4L7 17Z" stroke="#70C7F5"/>
+  <polygon points="9,15 13,7 17,14" stroke="#B7A5F6" stroke-width="1.35"/>
+</svg>

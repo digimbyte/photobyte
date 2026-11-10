@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Ping-pong playback</title>
+  <path d="M4 8h16m-3-3 3 3-3 3m3 5H4m3-3-3 3 3 3" stroke="#70C7F5"/>
+  <path d="M12 4v16" stroke-dasharray="2.35 2.55"/>
+</svg>

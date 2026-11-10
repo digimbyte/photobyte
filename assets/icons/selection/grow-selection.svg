@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Grow selection</title>
+  <rect x="8" y="8" width="8" height="8" rx="1" stroke-dasharray="2.35 2.55"/>
+  <path d="m7 7-3-3m0 3V4h3m10 13 3 3m-3 0h3v-3" stroke="#70C7F5"/>
+</svg>

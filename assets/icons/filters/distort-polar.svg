@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Polar coordinates</title>
+  <circle cx="12" cy="12" r="8.1" stroke="#B7A5F6"/>
+  <path d="M12 4v8h8m-8 0 5.7 5.7m-5.7-5.7H4" stroke="#70C7F5"/>
+  <circle cx="12" cy="12" r="1.25" stroke="none" fill="#70C7F5"/>
+</svg>

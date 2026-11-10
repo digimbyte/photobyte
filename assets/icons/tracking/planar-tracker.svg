@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Planar tracker</title>
+  <polygon points="6,6 18,4.5 20,17 5,19" stroke="#B7A5F6"/>
+  <path d="m6 6 14 11m-15 2L18 4.5" stroke-width="1.35"/>
+  <circle cx="6" cy="6" r="1.15" stroke="none" fill="#B7A5F6"/>
+  <circle cx="20" cy="17" r="1.15" stroke="none" fill="#B7A5F6"/>
+  <circle cx="12.3" cy="11.7" r="2.5" stroke="#70C7F5"/>
+</svg>

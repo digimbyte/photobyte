@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Voice isolation</title>
+  <g transform="translate(3.6 3.6) scale(0.7)">
+    <rect x="9" y="3" width="6" height="12" rx="3"/>
+    <path d="M6 11v1a6 6 0 1 0 12 0v-1m-6 7v3m-4 0h8" stroke="#70C7F5"/>
+  </g>
+  <path d="M3 7V3h4m10 0h4v4m0 10v4h-4m-10 0H3v-4" stroke="#B7A5F6"/>
+</svg>

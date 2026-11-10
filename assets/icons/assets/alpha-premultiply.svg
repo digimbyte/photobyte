@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Premultiply alpha</title>
+  <path d="M4 6h16v12H4Zm8 0v12"/>
+  <path d="M6 8h3v3H6Zm3 3h3v3H9Zm-3 3h3v3H6Z" stroke="#70C7F5"/>
+  <path d="m14 10 4 4m0-4-4 4" stroke="#B7A5F6"/>
+</svg>

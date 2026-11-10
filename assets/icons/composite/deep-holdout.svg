@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Deep holdout</title>
+  <g transform="translate(0.8182 0.8182) scale(0.9318)">
+    <path d="m3 17 9-5 9 5-9 5-9-5Zm0-5 9-5 9 5m-18-5 9-5 9 5" stroke="#B7A5F6"/>
+    <path d="M8 10h8v5H8Z" stroke="#70C7F5" fill="#70C7F5" fill-opacity=".32"/>
+  </g>
+</svg>

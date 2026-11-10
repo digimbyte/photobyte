@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Vertex select</title>
+  <g transform="translate(0.5581 0.3198) scale(0.9535)">
+    <path d="M12 3 21 8v9l-9 5-9-5V8Z"/>
+    <path d="m3 8 9 5 9-5m-9 5v9"/>
+    <circle cx="3" cy="8" r="1.65" stroke="none" fill="#B7A5F6"/>
+    <circle cx="12" cy="13" r="1.65" stroke="none" fill="#B7A5F6"/>
+    <circle cx="21" cy="17" r="1.65" stroke="none" fill="#B7A5F6"/>
+  </g>
+</svg>

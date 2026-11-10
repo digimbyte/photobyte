@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Emission</title>
+  <circle cx="12" cy="12" r="4.8" stroke="#B7A5F6" fill="#B7A5F6" fill-opacity=".32"/>
+  <path d="M12 3v2m0 14v2m7-9h2m-18 0h2m.5-6.5 1.6 1.6m9.8 9.8 1.6 1.6m0-13-1.6 1.6m-9.8 9.8-1.6 1.6" stroke="#70C7F5"/>
+</svg>

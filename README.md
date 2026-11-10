@@ -4,6 +4,8 @@ DigiPhoto is an offline Windows x64 editor for layered raster editing, frame ani
 
 [CS6+ product goal](docs/goal.md)
 
+[Editable SVG icon library](assets/icons/README.md)
+
 ## Run
 
 Open `DigiPhoto.exe` from the extracted Windows release ZIP or the built `bin` folder. Keep `digiphoto_codecs.dll` alongside it.

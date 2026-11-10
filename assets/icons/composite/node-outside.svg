@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Outside node</title>
+  <rect x="3" y="10" width="6" height="4" rx="1"/>
+  <rect x="15" y="10" width="6" height="4" rx="1"/>
+  <path d="M9 12h6m-9-2V5h12v5" stroke="#B7A5F6" stroke-dasharray="2.35 2.55"/>
+  <circle cx="12" cy="5" r="1.25" stroke="none" fill="#B7A5F6"/>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Pattern overlay</title>
+  <rect x="4" y="4" width="12" height="12" rx="1"/>
+  <rect x="8" y="8" width="12" height="12" rx="1" stroke="#B7A5F6"/>
+  <path d="M10 10h3v3h-3Zm5 0h3v3h-3Zm-5 5h3v3h-3Zm5 0h3v3h-3Z" stroke="#70C7F5" fill="#70C7F5" fill-opacity=".35"/>
+</svg>

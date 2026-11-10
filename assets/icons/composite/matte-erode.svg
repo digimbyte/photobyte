@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Erode matte</title>
+  <rect x="4" y="5" width="16" height="14" rx="1"/>
+  <rect x="8" y="8" width="8" height="8" rx="1" stroke="#B7A5F6" stroke-dasharray="2.35 2.55"/>
+  <path d="m6 7 3 3m-3 0h3V7m9 10-3-3m0 3v-3h3" stroke="#F4A695"/>
+</svg>

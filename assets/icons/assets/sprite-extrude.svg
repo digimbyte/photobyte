@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Extrude sprite edges</title>
+  <rect x="4" y="5" width="16" height="14" rx="1" stroke="#70C7F5"/>
+  <rect x="8" y="9" width="8" height="6" rx="0.5"/>
+  <path d="m8 9-4-4m12 4 4-4m-4 10 4 4M8 15l-4 4" stroke="#B7A5F6"/>
+</svg>

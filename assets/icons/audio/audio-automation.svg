@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Audio automation</title>
+  <path d="M4 17 10 9l5 4 5-8" stroke="#70C7F5"/>
+  <rect x="2.85" y="15.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  <rect x="8.85" y="7.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  <rect x="13.85" y="11.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  <rect x="18.85" y="3.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+</svg>

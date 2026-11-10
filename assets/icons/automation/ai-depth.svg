@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Estimate depth</title>
+  <path d="m4 8 8-4 8 4-8 4-8-4Zm0 5 8 4 8-4m-16 4 8 4 8-4" stroke="#B7A5F6"/>
+  <g transform="translate(18 6) scale(0.7)">
+    <path d="M0-4 1.2-1.2 4 0 1.2 1.2 0 4-1.2 1.2-4 0-1.2-1.2Z" stroke="#70C7F5"/>
+  </g>
+</svg>

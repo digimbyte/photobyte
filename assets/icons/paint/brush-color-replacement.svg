@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Color replacement brush</title>
+  <g transform="translate(0 0) scale(0.72)">
+    <path d="M8.5 14 17 4.5c1.6-1.6 4.2.7 2.7 2.4l-8.4 9.6M8.5 14c-3-.3-4.3 2.4-3.5 4.8-.4 1-.9 1.5-1.7 2 4.8.1 7.8-1.4 8-4.3Z"/>
+    <path d="m11.4 10.8 2.7 2.5" stroke="#70C7F5"/>
+  </g>
+  <path d="M14 14h5l-1.7-1.7M21 19h-5l1.7 1.7" stroke="#70C7F5"/>
+  <circle cx="13.5" cy="14" r="1" stroke="none" fill="#B7A5F6"/>
+  <circle cx="21" cy="19" r="1" stroke="none" fill="#F4A695"/>
+</svg>

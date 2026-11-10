@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Remove object</title>
+  <g transform="translate(0.2857 -0.2024) scale(0.9762)">
+    <path d="M4 9a7 7 0 0 1 13-1m-10 10a7 7 0 0 0 9-.5" stroke-dasharray="2.35 2.55"/>
+    <path d="m5 19 12-11 3 3L8 22Z" stroke="#F4A695"/>
+    <g transform="translate(19 5) scale(0.62)">
+      <path d="M0-4 1.2-1.2 4 0 1.2 1.2 0 4-1.2 1.2-4 0-1.2-1.2Z" stroke="#70C7F5"/>
+    </g>
+  </g>
+</svg>

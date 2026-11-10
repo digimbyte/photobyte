@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Gradient map</title>
+  <path d="M3.5 5h17v6h-17Zm0 8h17v6h-17Z"/>
+  <path d="M7 5v6m3-6v6m4-6v6m3-6v6M9 13v6m6-6v6" stroke="#70C7F5"/>
+</svg>

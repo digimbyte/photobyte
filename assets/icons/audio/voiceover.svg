@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Voiceover</title>
+  <g transform="translate(-0.75 0.25) scale(1)">
+    <g transform="translate(0 0) scale(0.71)">
+      <rect x="9" y="3" width="6" height="12" rx="3"/>
+      <path d="M6 11v1a6 6 0 1 0 12 0v-1m-6 7v3m-4 0h8" stroke="#70C7F5"/>
+    </g>
+    <path d="M13 17h2l1.5-3 1.6 6 1.4-4H22" stroke="#70C7F5"/>
+  </g>
+</svg>

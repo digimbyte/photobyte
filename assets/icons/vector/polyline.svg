@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Polyline</title>
+  <path d="m4 16 5-9 5 8 6-7"/>
+  <rect x="2.85" y="14.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  <rect x="7.85" y="5.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  <rect x="12.85" y="13.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+  <rect x="18.85" y="6.85" width="2.3" height="2.3" rx="0.25" stroke="#70C7F5"/>
+</svg>

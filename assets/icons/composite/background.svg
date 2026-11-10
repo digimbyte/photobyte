@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Background generator</title>
+  <rect x="3" y="5" width="18" height="14" rx="1"/>
+  <path d="M5.5 7.5h13v9h-13Z" stroke="#70C7F5" fill="#70C7F5" fill-opacity=".36"/>
+</svg>

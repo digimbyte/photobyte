@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Clear filter</title>
+  <g transform="translate(0 0) scale(0.75)">
+    <path d="M3.5 5h17l-6 7v6l-5 2v-8Z"/>
+    <path d="M6 8h12" stroke="#70C7F5"/>
+  </g>
+  <path d="m15.5 15.5 5 5m0-5-5 5" stroke="#F4A695"/>
+</svg>

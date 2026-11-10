@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Capsule</title>
+  <path d="M6 9a6 6 0 1 1 12 0v6a6 6 0 1 1-12 0Z"/>
+  <ellipse cx="12" cy="9" rx="6" ry="2.2" stroke="#B7A5F6"/>
+  <ellipse cx="12" cy="15" rx="6" ry="2.2" stroke="#B7A5F6" stroke-width="1.35"/>
+</svg>

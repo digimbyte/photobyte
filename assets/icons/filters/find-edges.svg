@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Find edges</title>
+  <rect x="4" y="5" width="16" height="14" rx="1"/>
+  <path d="m5 16 5-6 3 3 3-5 3 3" stroke="#70C7F5"/>
+  <circle cx="9" cy="8" r="1.05" stroke="none" fill="#70C7F5"/>
+</svg>

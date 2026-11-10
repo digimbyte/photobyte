@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Magic Mask</title>
+  <path d="M4 13c-1-5 4-9 9-9 4 0 7 3 7 7 0 5-5 9-9 8-3 0-6-2-7-6Z" stroke="#B7A5F6" stroke-dasharray="2.35 2.55"/>
+  <g transform="translate(12 12) scale(1.05)">
+    <path d="M0-4 1.2-1.2 4 0 1.2 1.2 0 4-1.2 1.2-4 0-1.2-1.2Z" stroke="#70C7F5"/>
+  </g>
+</svg>

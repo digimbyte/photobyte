@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Fill layer</title>
+  <polygon points="12,5 21,10 12,15 3,10"/>
+  <path d="m3 13 9 5 9-5m-13-4 4-2 4 2-4 2Z" stroke="#70C7F5" fill="#70C7F5" fill-opacity=".35"/>
+</svg>

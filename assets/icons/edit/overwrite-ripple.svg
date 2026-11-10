@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Ripple overwrite</title>
+  <path d="M4 16h16v4H4Z"/>
+  <path d="M12 4v9m-3-3 3 3 3-3" stroke="#F4A695"/>
+  <path d="M4 7h4m8 0h4" stroke="#70C7F5"/>
+  <path d="M4 13h4m8 0h4" stroke="#70C7F5" stroke-dasharray="2.35 2.55"/>
+</svg>

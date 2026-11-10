@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Prompt</title>
+  <path d="M4 5h16v11h-7l-5 4v-4H4Z"/>
+  <path d="M7 9h9m-9 3h7" stroke="#70C7F5"/>
+  <g transform="translate(18.5 7) scale(0.52)">
+    <path d="M0-4 1.2-1.2 4 0 1.2 1.2 0 4-1.2 1.2-4 0-1.2-1.2Z" stroke="#B7A5F6"/>
+  </g>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Refine selection edge</title>
+  <path d="M3 17V4h13" stroke-dasharray="2.35 2.55"/>
+  <circle cx="14.5" cy="13.5" r="4.5" stroke="#70C7F5"/>
+  <line x1="18" y1="17" x2="21" y2="20" stroke="#70C7F5"/>
+  <path d="M14.5 11.5v4m-2-2h4" stroke="#70C7F5" stroke-width="1.35"/>
+</svg>

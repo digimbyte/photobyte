@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Color compressor</title>
+  <circle cx="12" cy="12" r="8.5"/>
+  <path d="M12 12V3.5m0 8.5 7.5 4.3M12 12l-7.5 4.3" stroke="#70C7F5"/>
+  <circle cx="12" cy="12" r="1.1" stroke="none" fill="#70C7F5"/>
+  <path d="m5 9 4 3-4 3m14-6-4 3 4 3" stroke="#B7A5F6"/>
+</svg>

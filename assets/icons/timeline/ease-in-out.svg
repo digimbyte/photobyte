@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Ease in &amp; out</title>
+  <g transform="translate(0.8182 0.8182) scale(0.9318)">
+    <path d="M4 17c4 0 6-1 8-5s4-5 8-5"/>
+    <polygon points="4,15 6,17 4,19 2,17" stroke="#70C7F5"/>
+    <polygon points="20,5 22,7 20,9 18,7" stroke="#70C7F5"/>
+  </g>
+</svg>

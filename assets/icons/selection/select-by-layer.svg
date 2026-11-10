@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Select by layer content</title>
+  <path d="m12 4 8 4.5-8 4.5-8-4.5Z"/>
+  <path d="m4 13 8 4.5 8-4.5M4 17l8 4.5 8-4.5" stroke="#70C7F5" stroke-dasharray="2.35 2.55"/>
+</svg>

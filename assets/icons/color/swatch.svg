@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Color swatch</title>
+  <rect x="4" y="4" width="16" height="16" rx="2"/>
+  <rect x="6.5" y="6.5" width="11" height="11" rx="1" stroke="#70C7F5" fill="#70C7F5" fill-opacity=".36"/>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Disable mask</title>
+  <rect x="3" y="5" width="18" height="14" rx="2"/>
+  <ellipse cx="12" cy="12" rx="4.7" ry="4" stroke="#70C7F5" fill="#70C7F5" fill-opacity=".22"/>
+  <line x1="4" y1="20" x2="20" y2="4" stroke="#F4A695"/>
+</svg>

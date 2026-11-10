@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Constrain X axis</title>
+  <path d="M12 4v9l8 4" opacity=".55"/>
+  <path d="m12 13-8 4m.7-3L4 17l3 .4" stroke="#F4A695" stroke-width="2.4"/>
+  <circle cx="12" cy="13" r="1.1" stroke="none" fill="#F4A695"/>
+</svg>

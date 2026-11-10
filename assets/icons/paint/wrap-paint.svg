@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Wrap-around painting</title>
+  <rect x="4" y="4" width="16" height="16" rx="2"/>
+  <path d="M2.8 13c5 0 7-4 12-4 3 0 4 1 6.4 1.8m-3.4-3 3.4 3-3.7 1.6" stroke="#70C7F5"/>
+</svg>

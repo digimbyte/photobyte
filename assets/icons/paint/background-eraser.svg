@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Background eraser</title>
+  <g transform="translate(-0.5 -0.5) scale(1)">
+    <g transform="translate(1 1) scale(0.67)">
+      <path d="m4.3 15.7 9.8-11a2 2 0 0 1 2.8-.1l3.6 3.3a2 2 0 0 1 .2 2.8l-8.6 9.6H8.7L4.4 17a.9.9 0 0 1-.1-1.3Z"/>
+      <path d="m9 10.7 7.3 6.4m-4.2 3.2H21" stroke="#70C7F5"/>
+    </g>
+    <circle cx="17" cy="17" r="3" stroke="#70C7F5"/>
+    <path d="M17 12v2m0 6v2m-5-5h2m6 0h2" stroke="#70C7F5" stroke-width="1.35"/>
+  </g>
+</svg>

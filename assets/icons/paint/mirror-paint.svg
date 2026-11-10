@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Mirror painting</title>
+  <line x1="12" y1="3" x2="12" y2="21" stroke="#70C7F5" stroke-dasharray="2.35 2.55"/>
+  <path d="M9 6c-2 1-5 3-5 7s4 5 4 2m7-9c2 1 5 3 5 7s-4 5-4 2"/>
+</svg>

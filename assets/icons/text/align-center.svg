@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Center paragraph</title>
+  <path d="M4 6h16M7 10h10M4 14h16M7.5 18h9"/>
+  <line x1="12" y1="3" x2="12" y2="21" stroke="#70C7F5" stroke-dasharray="2.35 2.55"/>
+</svg>

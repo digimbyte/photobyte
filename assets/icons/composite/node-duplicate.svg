@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Duplicate node</title>
+  <g transform="translate(1.0265 0.4235) scale(0.9647)">
+    <g transform="translate(0 0) scale(0.74)">
+      <rect x="4" y="6" width="16" height="12" rx="2"/>
+      <path d="M1.8 12H4m16 0h2.2" stroke="#B7A5F6"/>
+      <circle cx="7" cy="9" r="0.9" stroke="none" fill="#70C7F5"/>
+    </g>
+    <rect x="9" y="12" width="12" height="8" rx="1.5" stroke="#B7A5F6"/>
+    <circle cx="11" cy="14" r="0.85" stroke="none" fill="#B7A5F6"/>
+  </g>
+</svg>

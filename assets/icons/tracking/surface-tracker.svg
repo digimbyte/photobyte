@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Surface tracker</title>
+  <path d="M4 6c5-2 11-2 16 0-2 5-2 7 0 12-6 2-12 2-16 0 2-5 2-7 0-12Z" stroke="#B7A5F6"/>
+  <path d="M5.5 12c5-1 8 1 13 0m-6-7c-1 4 1 10 0 14" stroke="#70C7F5" stroke-width="1.35"/>
+  <circle cx="12" cy="12" r="1.4" stroke="none" fill="#B7A5F6"/>
+</svg>

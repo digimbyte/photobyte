@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Delta keyer</title>
+  <circle cx="8.5" cy="10" r="4.7"/>
+  <path d="m12.7 12.3 7.3 4.7m-4.8-3 1.8-2.4m.5 4.3 2-2.2" stroke="#B7A5F6"/>
+  <circle cx="8.5" cy="10" r="1.1" stroke="none" fill="#70C7F5"/>
+  <polygon points="13,6 17,3.5 20,8" stroke="#70C7F5" stroke-width="1.35"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Render passes</title>
+  <g transform="translate(0 -0.75) scale(1)">
+    <path d="m3 9 9-5 9 5-9 5Zm0 5 9 5 9-5m-18 4 9 4 9-4"/>
+    <circle cx="12" cy="9" r="1.5" stroke="none" fill="#B7A5F6"/>
+    <path d="m5 14 7 4 7-4" stroke="#B7A5F6"/>
+  </g>
+</svg>

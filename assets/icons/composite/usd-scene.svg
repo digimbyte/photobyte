@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>USD scene</title>
+  <path d="m12 3 8 4.5v9L12 21l-8-4.5v-9Z"/>
+  <path d="M8 9v3.5a2 2 0 0 0 4 0V9m2 6h3m-3-6h3m-3 3h3" stroke="#B7A5F6" stroke-width="1.35"/>
+</svg>

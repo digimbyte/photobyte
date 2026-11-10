@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Painting assistant</title>
+  <polygon points="4,19 12,4 20,19"/>
+  <path d="M7 15h10m-5-9v12" stroke="#70C7F5"/>
+  <circle cx="12" cy="15" r="1.1" stroke="none" fill="#70C7F5"/>
+</svg>

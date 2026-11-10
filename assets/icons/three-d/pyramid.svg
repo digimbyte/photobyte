@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Pyramid</title>
+  <polygon points="12,3 21,16 12,21 3,16"/>
+  <path d="M12 3v18m-9-5 9-5 9 5" stroke="#B7A5F6" stroke-dasharray="2.35 2.55"/>
+</svg>

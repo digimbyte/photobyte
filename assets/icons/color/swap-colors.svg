@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Swap foreground/background</title>
+  <g transform="translate(-0.75 0) scale(1)">
+    <rect x="4" y="8" width="8" height="8" rx="1"/>
+    <rect x="9" y="13" width="8" height="8" rx="1" stroke="#70C7F5"/>
+    <path d="M13 5h6v6m-3-3 3 3 3-3" stroke="#70C7F5"/>
+  </g>
+</svg>

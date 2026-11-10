@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Merge objects</title>
+  <g transform="translate(0.5581 0.5581) scale(0.9535)">
+    <g transform="translate(0 0) scale(0.58)">
+      <path d="M12 3 21 8v9l-9 5-9-5V8Z"/>
+      <path d="m3 8 9 5 9-5m-9 5v9"/>
+    </g>
+    <g transform="translate(10 0) scale(0.58)">
+      <path d="M12 3 21 8v9l-9 5-9-5V8Z"/>
+      <path d="m3 8 9 5 9-5m-9 5v9"/>
+    </g>
+    <path d="M7 15h10m-7-2-3 2 3 2m4-4 3 2-3 2" stroke="#B7A5F6"/>
+    <circle cx="12" cy="20" r="1.7" stroke="none" fill="#B7A5F6"/>
+  </g>
+</svg>

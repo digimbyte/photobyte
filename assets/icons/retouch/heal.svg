@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Healing brush</title>
+  <path d="m4 14 10-10a3.3 3.3 0 0 1 4.6 0L20 5.4a3.3 3.3 0 0 1 0 4.6L10 20a3.3 3.3 0 0 1-4.6 0L4 18.6a3.3 3.3 0 0 1 0-4.6Z"/>
+  <path d="m8 10 6 6m-4-8 6 6" stroke="#70C7F5"/>
+  <circle cx="11" cy="13" r="1.1" stroke="none" fill="#70C7F5"/>
+  <circle cx="13" cy="11" r="1.1" stroke="none" fill="#70C7F5"/>
+</svg>

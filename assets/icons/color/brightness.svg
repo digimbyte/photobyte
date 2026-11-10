@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Brightness</title>
+  <circle cx="12" cy="12" r="4.3" stroke="#70C7F5"/>
+  <path d="M12 2.8v3m0 12.4v3m9.2-9.2h-3M5.8 12h-3m2.7-6.5 2 2m9 9 2 2m0-13-2 2m-9 9-2 2"/>
+</svg>

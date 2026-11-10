@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Unsaved edits</title>
+  <path d="M6 3h8l4 4v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/>
+  <path d="M14 3v5h4" stroke="#70C7F5"/>
+  <circle cx="16.2" cy="16.3" r="3" stroke="none" fill="#F4A695"/>
+</svg>

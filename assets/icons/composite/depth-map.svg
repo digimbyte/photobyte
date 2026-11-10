@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Depth map</title>
+  <path d="M4 19 20 5m-16 9 11-9M9 19 20 9m-5 10 5-5" stroke="#B7A5F6"/>
+  <path d="M4 5h16v14H4Z"/>
+</svg>

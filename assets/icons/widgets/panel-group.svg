@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Panel group</title>
+  <path d="M3 8h6l2 3h10v9H3Z"/>
+  <path d="M6 5h12v3" stroke="#70C7F5"/>
+  <path d="M6 14h4m2 0h6m-12 3h8" stroke="#70C7F5" stroke-width="1.35"/>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Audio pan</title>
+  <circle cx="12" cy="12" r="8.5"/>
+  <path d="M12 12 16 8m-8 9h8" stroke="#70C7F5"/>
+  <circle cx="12" cy="12" r="1.35" stroke="none" fill="#70C7F5"/>
+</svg>

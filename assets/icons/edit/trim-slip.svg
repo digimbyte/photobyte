@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Slip edit</title>
+  <rect x="4" y="8" width="16" height="8" rx="1"/>
+  <path d="M8 12h8m-6-2-2 2 2 2m4-4 2 2-2 2" stroke="#70C7F5"/>
+  <path d="M4 5v14m16-14v14" stroke="#B7A5F6" stroke-dasharray="2.35 2.55"/>
+</svg>

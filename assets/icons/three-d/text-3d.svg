@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>3D text / Extruded type</title>
+  <path d="M4 5h12v3h-4.5v10H8.5V8H4Z"/>
+  <path d="m4 5 3-2h12l-3 2m3-2v4l-3 1m-4.5 10 3.5-2.4V8.3m-3.5 9.7L8 20h3.5l3.5-2.4v-2" stroke="#B7A5F6"/>
+</svg>

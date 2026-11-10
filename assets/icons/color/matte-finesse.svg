@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5EDF7" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+  <title>Matte finesse</title>
+  <rect x="4" y="5" width="16" height="14" rx="1"/>
+  <path d="M4 16c6 0 9-8 16-8" stroke="#70C7F5" stroke-width="2.4"/>
+  <path d="M4 13c6 0 9-8 16-8m-16 14c6 0 9-8 16-8" stroke="#B7A5F6" stroke-dasharray="2.35 2.55"/>
+</svg>
