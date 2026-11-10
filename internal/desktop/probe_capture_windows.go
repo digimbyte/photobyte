@@ -104,7 +104,7 @@ func (c *probeCapture) waitPixel(hwnd, dc uintptr, req pixelRequest) *pixelObser
 			return result
 		default:
 		}
-		if receipt := app.DigiPhotoPresentState(); receipt.Sequence > req.after && receipt.Displayed {
+		if receipt := app.PhotoBytePresentState(); receipt.Sequence > req.after && receipt.Displayed {
 			at, _, _ := probeWindowAt.Call(xy)
 			if at != hwnd {
 				result.err = errors.New("the editor marker is obscured on the desktop")

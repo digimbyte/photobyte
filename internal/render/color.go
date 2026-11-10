@@ -3,8 +3,8 @@ package render
 import (
 	"math"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/tile"
 )
 
 type rgba struct{ r, g, b, a float32 }

@@ -12,7 +12,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"digiphoto/internal/publish"
+	"github.com/digimbyte/photobyte/internal/publish"
 )
 
 type dockSide int

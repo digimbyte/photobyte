@@ -1,0 +1,26 @@
+LANGUAGE 9, 1
+
+1 ICON "photobyte.ico"
+
+1 VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK 0x3f
+ FILEOS 0x40004
+ FILETYPE 0x1
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "FileDescription", "PhotoByte\0"
+            VALUE "InternalName", "PhotoByte\0"
+            VALUE "OriginalFilename", "PhotoByte.exe\0"
+            VALUE "ProductName", "PhotoByte\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 1200
+    END
+END

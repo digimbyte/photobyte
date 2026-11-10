@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/tile"
 )
 
 type recoveryWrite struct {
@@ -32,16 +32,17 @@ type Entry struct {
 }
 
 type Journal struct {
-	dir    string
-	store  *tile.Store
-	notify func()
-	mu     sync.Mutex
-	queue  map[string]recoveryWrite
-	status map[string]Status
-	stop   chan struct{}
-	done   chan struct{}
-	ctx    context.Context
-	cancel context.CancelFunc
+	dir      string
+	store    *tile.Store
+	notify   func()
+	mu       sync.Mutex
+	queue    map[string]recoveryWrite
+	inFlight map[string]recoveryWrite
+	status   map[string]Status
+	stop     chan struct{}
+	done     chan struct{}
+	ctx      context.Context
+	cancel   context.CancelFunc
 }
 
 func NewJournal(dir string, store *tile.Store, notify func()) (*Journal, error) {
@@ -67,6 +68,19 @@ func (j *Journal) Status(id string) Status {
 	j.mu.Lock()
 	defer j.mu.Unlock()
 	return j.status[id]
+}
+
+// PendingSnapshots includes batches already handed off to the journal worker.
+func (j *Journal) PendingSnapshots() []document.Snapshot {
+	j.mu.Lock()
+	defer j.mu.Unlock()
+	pins := make([]document.Snapshot, 0, len(j.queue)+len(j.inFlight))
+	for _, batch := range []map[string]recoveryWrite{j.queue, j.inFlight} {
+		for _, write := range batch {
+			pins = append(pins, write.snapshot)
+		}
+	}
+	return pins
 }
 
 func (j *Journal) Close() {
@@ -96,6 +110,7 @@ func (j *Journal) writePending() {
 	j.mu.Lock()
 	queue := j.queue
 	j.queue = make(map[string]recoveryWrite)
+	j.inFlight = queue
 	j.mu.Unlock()
 	for id, write := range queue {
 		err := RecoverTo(j.ctx, filepath.Join(j.dir, id+".dphoto"), j.store, write.snapshot, write.manual, write.original)
@@ -115,6 +130,9 @@ func (j *Journal) writePending() {
 			j.store.FlushPending(j.ctx)
 		}
 	}
+	j.mu.Lock()
+	j.inFlight = nil
+	j.mu.Unlock()
 }
 
 func Recoverable(ctx context.Context, dir string) ([]Entry, error) {

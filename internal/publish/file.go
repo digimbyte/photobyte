@@ -19,7 +19,7 @@ func ReplaceFile(ctx context.Context, dest string, write func(*os.File) error) e
 }
 
 func stage(ctx context.Context, dest string, write func(*os.File) error, commit func(string, string) error) error {
-	f, err := os.CreateTemp(filepath.Dir(dest), ".digiphoto-*")
+	f, err := os.CreateTemp(filepath.Dir(dest), ".photobyte-*")
 	if err != nil {
 		return err
 	}

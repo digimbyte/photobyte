@@ -5,9 +5,11 @@ import (
 	"image"
 	"image/color"
 	"math"
+	"slices"
+	"sync"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/render"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/render"
 
 	"gioui.org/f32"
 	"gioui.org/io/event"
@@ -47,7 +49,7 @@ type gesture struct {
 	first  f32.Point
 	last   f32.Point
 	origin f32.Point
-	points []document.Point
+	stroke document.Stroke
 }
 
 type viewport struct {
@@ -61,12 +63,13 @@ type viewport struct {
 	front          previewFrame
 	images         map[*image.RGBA]paint.ImageOp
 	gesture        *gesture
-	pending        []document.Point
 	size           image.Point
 	checkerCell    int
 	checkerTexture paint.ImageOp
 	strips         previewStrips // owned by the preview worker
 	brushPreview   brushPreview
+	pinMu          sync.Mutex
+	pins           map[*document.State]int
 }
 
 func (v *viewport) start(u *window) {
@@ -82,6 +85,7 @@ func (v *viewport) start(u *window) {
 				return
 			case req := <-v.requests:
 				f := v.render(req)
+				v.pin(req.state, -1)
 				select {
 				case v.ready <- f:
 					u.win.Invalidate()
@@ -95,6 +99,29 @@ func (v *viewport) start(u *window) {
 }
 
 func (v *viewport) close() { v.cancel(); <-v.finished }
+
+func (v *viewport) pin(state *document.State, delta int) {
+	v.pinMu.Lock()
+	defer v.pinMu.Unlock()
+	if n := v.pins[state] + delta; n > 0 {
+		if v.pins == nil {
+			v.pins = make(map[*document.State]int)
+		}
+		v.pins[state] = n
+	} else {
+		delete(v.pins, state)
+	}
+}
+
+func (v *viewport) pinnedStates() []*document.State {
+	v.pinMu.Lock()
+	defer v.pinMu.Unlock()
+	states := make([]*document.State, 0, len(v.pins))
+	for state := range v.pins {
+		states = append(states, state)
+	}
+	return states
+}
 
 func (v *viewport) render(req previewRequest) previewFrame {
 	key := req.key
@@ -221,9 +248,11 @@ func (v *viewport) request(key previewKey, state *document.State) {
 	ctx, cancel := context.WithCancel(v.u.ctx)
 	v.cancelJob = cancel
 	select {
-	case <-v.requests:
+	case old := <-v.requests:
+		v.pin(old.state, -1)
 	default:
 	}
+	v.pin(state, 1)
 	v.requests <- previewRequest{key: key, state: state, ctx: ctx}
 }
 
@@ -249,6 +278,10 @@ func (v *viewport) receive() {
 			}
 		}
 		v.front, v.images = f, images
+		v.u.finishedStrokes = slices.DeleteFunc(v.u.finishedStrokes, func(work *strokeWork) bool {
+			return work.stroke.Frame == f.key.frame && work.version <= f.key.version &&
+				work.tab.editor.Snapshot().Project == f.key.project
+		})
 	default:
 	}
 }
@@ -359,21 +392,26 @@ func (v *viewport) handlePointer(gtx layout.Context, t *tab, p pointer.Event) {
 		if p.Buttons.Contain(pointer.ButtonTertiary) {
 			tool = "Hand"
 		}
+		g := &gesture{tool: tool, first: p.Position, last: p.Position, origin: t.origin}
 		if tool == "Brush" || tool == "Eraser" {
-			if v.u.stopEdit != nil {
+			if len(v.u.strokeQueue) >= maxQueuedStrokes {
+				v.u.setMessage("", errStrokeQueueFull)
 				return
 			}
+			s := t.editor.Snapshot().State()
+			g.stroke = document.Stroke{Layer: t.layer, Frame: t.frame, Points: []document.Point{worldPoint(t, p.Position)},
+				Radius: v.u.radius, Color: v.u.ink, Erase: tool == "Eraser", Mask: v.u.mask, Selection: t.selection,
+				Shared: len(s.Frames) == 1 && len(s.Frames[0].Cels) == 0}
 		}
-		v.gesture = &gesture{tool: tool, first: p.Position, last: p.Position, origin: t.origin,
-			points: []document.Point{worldPoint(t, p.Position)}}
+		v.gesture = g
 		gtx.Execute(pointer.GrabCmd{Tag: v, ID: p.PointerID})
 	case pointer.Drag:
 		if g := v.gesture; g != nil {
 			g.last = p.Position
 			if g.tool == "Hand" {
 				t.origin = g.origin.Add(p.Position.Sub(g.first))
-			} else if (g.tool == "Brush" || g.tool == "Eraser") && len(g.points) < 16384 {
-				g.points = append(g.points, worldPoint(t, p.Position))
+			} else if len(g.stroke.Points) > 0 && len(g.stroke.Points) < 16384 {
+				g.stroke.Points = append(g.stroke.Points, worldPoint(t, p.Position))
 			}
 		}
 	case pointer.Cancel:
@@ -404,16 +442,15 @@ func (v *viewport) finish(t *tab, point f32.Point) {
 			v.u.apply(t, document.LayerProperties{Layer: l})
 		}
 	case "Brush", "Eraser":
-		v.pending = g.points
-		v.u.paint(t, document.Stroke{Layer: t.layer, Frame: t.frame, Points: g.points,
-			Radius: v.u.radius, Color: v.u.ink, Erase: g.tool == "Eraser", Mask: v.u.mask,
-			Shared: len(s.Frames) == 1 && len(s.Frames[0].Cels) == 0, Selection: t.selection})
+		if points := g.stroke.Points; point != g.last && len(points) < 16384 {
+			g.stroke.Points = append(points, worldPoint(t, point))
+		}
+		v.u.paint(t, g.stroke)
 	}
 }
 
 func (v *viewport) cancelGesture() {
 	v.gesture = nil
-	v.pending = nil
 }
 
 func strokeRect(gtx layout.Context, r image.Rectangle, c color.NRGBA) {
@@ -431,28 +468,44 @@ func strokeRect(gtx layout.Context, r image.Rectangle, c color.NRGBA) {
 }
 
 func (v *viewport) drawGesture(gtx layout.Context, t *tab) {
-	points := v.pending
-	ink := v.u.ink
+	draw := func(work *strokeWork) {
+		if work != nil && work.tab == t && work.stroke.Frame == t.frame {
+			drawStroke(gtx, t, work.stroke, &work.preview)
+		}
+	}
+	for _, work := range v.u.finishedStrokes {
+		draw(work)
+	}
+	draw(v.u.activeStroke)
+	for _, work := range v.u.strokeQueue {
+		draw(work)
+	}
 	if g := v.gesture; g != nil {
 		switch g.tool {
 		case "Select", "Crop":
 			strokeRect(gtx, screenRect(t, v.rect(t, g.first, g.last)), textPrimary)
 		case "Brush", "Eraser":
-			points = g.points
+			if g.stroke.Frame == t.frame {
+				drawStroke(gtx, t, g.stroke, &v.brushPreview)
+			}
 		}
 	}
+}
+
+func drawStroke(gtx layout.Context, t *tab, stroke document.Stroke, preview *brushPreview) {
+	points := stroke.Points
 	if len(points) == 0 {
 		return
 	}
 	toScreen := func(p document.Point) f32.Point {
 		return f32.Pt(float32(p.X)*t.zoom+t.origin.X, float32(p.Y)*t.zoom+t.origin.Y)
 	}
-	c := color.NRGBA{R: byte(ink.R >> 8), G: byte(ink.G >> 8), B: byte(ink.B >> 8), A: 215}
-	if v.u.mask || v.u.tool == "Eraser" {
+	c := color.NRGBA{R: byte(stroke.Color.R >> 8), G: byte(stroke.Color.G >> 8), B: byte(stroke.Color.B >> 8), A: 215}
+	if stroke.Mask || stroke.Erase {
 		c = color.NRGBA{R: 168, G: 192, B: 221, A: 150}
 	}
-	width := max(1, float32(v.u.radius*2)*t.zoom)
-	if v.brushPreview.draw(gtx, t, points, width, c) {
+	width := max(1, float32(stroke.Radius*2)*t.zoom)
+	if preview.draw(gtx, t, points, width, c) {
 		return
 	}
 	var path clip.Path

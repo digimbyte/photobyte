@@ -7,7 +7,7 @@ import (
 	"slices"
 	"testing"
 
-	"digiphoto/internal/render"
+	"github.com/digimbyte/photobyte/internal/render"
 )
 
 func TestPreviewStripsPreservePixelsAndReuseUnchangedRows(t *testing.T) {

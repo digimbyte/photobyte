@@ -55,13 +55,13 @@ $env:TrackFileAccess = 'false'
 try {
     & $cmake -S (Join-Path $root 'native') -B $build -G $generator -A x64 @options
     if ($LASTEXITCODE -ne 0) { throw 'Native codec configuration failed.' }
-    & $cmake --build $build --config Release --target digiphoto_codecs --parallel
+    & $cmake --build $build --config Release --target photobyte_codecs --parallel
     if ($LASTEXITCODE -ne 0) { throw 'Native codec build failed.' }
 }
 finally {
     $env:TrackFileAccess = $previousTracking
 }
-Copy-Item -LiteralPath (Join-Path $build 'Release/digiphoto_codecs.dll') -Destination $out -Force
+Copy-Item -LiteralPath (Join-Path $build 'Release/photobyte_codecs.dll') -Destination $out -Force
 
 $licenses = Join-Path $out 'licenses'
 New-Item -ItemType Directory -Force -Path $licenses | Out-Null

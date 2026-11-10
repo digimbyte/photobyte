@@ -6,7 +6,7 @@ import (
 	"image/draw"
 	"slices"
 
-	"digiphoto/internal/render"
+	"github.com/digimbyte/photobyte/internal/render"
 )
 
 const (

@@ -5,8 +5,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/tile"
 )
 
 func TestFailedSaveRetainsPreviousRevision(t *testing.T) {

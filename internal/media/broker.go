@@ -10,8 +10,8 @@ import (
 	"strconv"
 	"time"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/tile"
 )
 
 type Codec interface {

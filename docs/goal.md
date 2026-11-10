@@ -1,4 +1,4 @@
-# DigiPhoto product goal
+# PhotoByte product goal
 
 Build a native, offline **CS6+** editor for photo editing, web graphics, and game assets. Use Photoshop CS6 Standard as the baseline for familiar editing behavior. Improve on it with responsive previews, recoverable projects, current formats, and repeatable asset exports. [Photoshop CS6 reference](https://help.adobe.com/archive/en/photoshop/cs6/photoshop_reference.pdf)
 

@@ -11,9 +11,10 @@ import (
 	"strconv"
 	"strings"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/media"
-	"digiphoto/internal/project"
+	"github.com/digimbyte/photobyte/assets/brand"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/media"
+	"github.com/digimbyte/photobyte/internal/project"
 
 	"gioui.org/font/gofont"
 	"gioui.org/io/event"
@@ -29,6 +30,7 @@ import (
 )
 
 var (
+	brandMark   = paint.NewImageOp(brand.Mark())
 	workspaceBG = color.NRGBA{R: 25, G: 28, B: 32, A: 255}
 	panelBG     = color.NRGBA{R: 37, G: 41, B: 47, A: 255}
 	buttonBG    = color.NRGBA{R: 48, G: 53, B: 61, A: 255}
@@ -223,7 +225,7 @@ func (u *window) toolbar(gtx layout.Context) layout.Dimensions {
 		}
 	}
 	return layout.UniformInset(8).Layout(gtx, func(gtx layout.Context) layout.Dimensions {
-		return wrapRow(gtx, u.text("DigiPhoto   ", 17, false), u.workspaceButton("workspace", "Workspace", false, u.showWorkspaces),
+		return wrapRow(gtx, u.brandHeader, u.workspaceButton("workspace", "Workspace", false, u.showWorkspaces),
 			u.workspaceButton("new", "New", false, u.chooseNew),
 			u.workspaceButton("open", "Open", false, u.chooseOpen), u.workspaceButton("save", "Save", false, save),
 			u.workspaceButton("copy", "Save Copy", false, saveCopy), u.workspaceButton("export", "Export", false, export),
@@ -233,6 +235,14 @@ func (u *window) toolbar(gtx layout.Context) layout.Dimensions {
 			u.workspaceButton("before", "Before / After", t != nil && t.bypass != 0, before),
 			u.workspaceButton("fit", "Fit", false, fit))
 	})
+}
+
+func (u *window) brandHeader(gtx layout.Context) layout.Dimensions {
+	return row(gtx, func(gtx layout.Context) layout.Dimensions {
+		size := gtx.Dp(24)
+		gtx.Constraints = layout.Exact(image.Pt(size, size))
+		return (widget.Image{Src: brandMark, Fit: widget.Contain}).Layout(gtx)
+	}, (layout.Spacer{Width: 5}).Layout, u.text("PhotoByte", 17, false), (layout.Spacer{Width: 8}).Layout)
 }
 
 func (u *window) tabBar(gtx layout.Context) layout.Dimensions {
@@ -262,12 +272,18 @@ func (u *window) tabBar(gtx layout.Context) layout.Dimensions {
 }
 
 func (u *window) confirmClose(t *tab) {
+	if u.strokesPending(t) {
+		u.setMessage("", errors.New("wait for pending brush strokes before closing this tab"))
+		return
+	}
 	closeTab := func() {
 		for i, candidate := range u.tabs {
 			if t == candidate {
 				u.tabs = append(u.tabs[:i], u.tabs[i+1:]...)
 				u.index = min(u.index, max(0, len(u.tabs)-1))
 				t.editor.Close()
+				u.forgetStrokePreviews(t)
+				u.tileMaintenance.force = true
 				u.canvas.cancelGesture()
 				u.stopPlayback()
 				break
@@ -583,6 +599,8 @@ func (u *window) shortcuts(gtx layout.Context) {
 				u.form = nil
 			} else if u.cancelDockDrag() {
 				gtx.Execute(op.InvalidateCmd{})
+			} else if u.canvas.gesture != nil {
+				u.canvas.cancelGesture()
 			} else if u.stopEdit != nil {
 				u.stopEdit()
 			} else {

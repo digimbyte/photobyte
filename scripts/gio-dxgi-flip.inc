@@ -2,20 +2,20 @@
 
 // IDXGIFactory2 includes the inherited methods and IsWindowedStereoEnabled
 // before CreateSwapChainForHwnd.
-type digiPhotoFactory2 struct {
+type photoByteFactory2 struct {
 	Vtbl *struct {
 		Inherited [15]uintptr
 		CreateSwapChainForHwnd uintptr
 	}
 }
 
-type digiPhotoSwapChainDesc struct {
+type photoByteSwapChainDesc struct {
 	Width, Height, Format, Stereo uint32
 	SampleDesc DXGI_SAMPLE_DESC
 	Usage, BufferCount, Scaling, SwapEffect, AlphaMode, Flags uint32
 }
 
-func (d *Device) DigiPhotoLimitFrameQueue() error {
+func (d *Device) PhotoByteLimitFrameQueue() error {
 	iid := GUID{0x77db970f, 0x6276, 0x48ba, 0xba, 0x28, 0x07, 0x01, 0x43, 0xb4, 0x39, 0x2c}
 	dev, err := IUnknownQueryInterface(unsafe.Pointer(d), d.Vtbl.QueryInterface, &iid)
 	if err != nil {
@@ -35,7 +35,7 @@ func (d *Device) DigiPhotoLimitFrameQueue() error {
 	return nil
 }
 
-func DigiPhotoCreateSwapChain(dev *Device, hwnd windows.Handle) (*IDXGISwapChain, error) {
+func PhotoByteCreateSwapChain(dev *Device, hwnd windows.Handle) (*IDXGISwapChain, error) {
 	dxgiDev, err := IUnknownQueryInterface(unsafe.Pointer(dev), dev.Vtbl.QueryInterface, &IID_IDXGIDevice)
 	if err != nil {
 		return nil, err
@@ -52,14 +52,14 @@ func DigiPhotoCreateSwapChain(dev *Device, hwnd windows.Handle) (*IDXGISwapChain
 		return nil, err
 	}
 	defer IUnknownRelease(unsafe.Pointer(factory), factory.Vtbl.Release)
-	desc := digiPhotoSwapChainDesc{
+	desc := photoByteSwapChainDesc{
 		Format: DXGI_FORMAT_R8G8B8A8_UNORM, SampleDesc: DXGI_SAMPLE_DESC{Count: 1},
 		Usage: DXGI_USAGE_RENDER_TARGET_OUTPUT, BufferCount: 2,
 		SwapEffect: 4, // DXGI_SWAP_EFFECT_FLIP_DISCARD
 		AlphaMode: 3, // DXGI_ALPHA_MODE_IGNORE
 	}
 	var chain *IDXGISwapChain
-	vtable := (*digiPhotoFactory2)(unsafe.Pointer(factory)).Vtbl
+	vtable := (*photoByteFactory2)(unsafe.Pointer(factory)).Vtbl
 	code, _, _ := syscall.SyscallN(vtable.CreateSwapChainForHwnd,
 		uintptr(unsafe.Pointer(factory)), uintptr(unsafe.Pointer(dev)), uintptr(hwnd),
 		uintptr(unsafe.Pointer(&desc)), 0, 0, uintptr(unsafe.Pointer(&chain)))
@@ -69,7 +69,7 @@ func DigiPhotoCreateSwapChain(dev *Device, hwnd windows.Handle) (*IDXGISwapChain
 	return chain, nil
 }
 
-func (d *Device) DigiPhotoCreateSRGBRenderTargetView(resource *Resource) (*RenderTargetView, error) {
+func (d *Device) PhotoByteCreateSRGBRenderTargetView(resource *Resource) (*RenderTargetView, error) {
 	// A flip chain uses UNORM buffers, with an sRGB view for the same
 	// linear-to-sRGB conversion as the original Gio backbuffer.
 	desc := struct { Format, Dimension uint32; View [3]uint32 }{
@@ -85,7 +85,7 @@ func (d *Device) DigiPhotoCreateSRGBRenderTargetView(resource *Resource) (*Rende
 	return target, nil
 }
 
-func (c *DeviceContext) DigiPhotoFlushReleasedBindings() {
+func (c *DeviceContext) PhotoByteFlushReleasedBindings() {
 	syscall.SyscallN(c.Vtbl.ClearState, uintptr(unsafe.Pointer(c)))
 	syscall.SyscallN(c.Vtbl.Flush, uintptr(unsafe.Pointer(c)))
 }

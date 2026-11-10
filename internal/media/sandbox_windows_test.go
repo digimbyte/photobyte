@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	"digiphoto/internal/media"
+	"github.com/digimbyte/photobyte/internal/media"
 )
 
 type sandboxTargets struct {

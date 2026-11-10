@@ -12,9 +12,9 @@ import (
 	"image/draw"
 	"io"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/render"
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/render"
+	"github.com/digimbyte/photobyte/internal/tile"
 )
 
 const pngMagic = "\x89PNG\r\n\x1a\n"

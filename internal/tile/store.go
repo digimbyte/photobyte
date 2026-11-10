@@ -106,20 +106,23 @@ type cacheEntry struct {
 // Store holds compressed source tiles on disk. Only immutable decoded blocks
 // in the LRU and those currently referenced by workers occupy decoded memory.
 type Store struct {
-	dir          string
-	limit        int
-	mu           sync.Mutex
-	cache        map[Hash]*list.Element
-	lru          list.List
-	pending      map[Hash][]byte
-	pendingBytes int
+	dir   string
+	limit int
+	mu    sync.Mutex
+	cache map[Hash]*list.Element
+	lru   list.List
+	spool tileSpool
 }
 
 func NewStore(dir string, cacheBytes int) (*Store, error) {
 	if err := os.MkdirAll(dir, 0o700); err != nil {
 		return nil, err
 	}
-	return &Store{dir: dir, limit: max(0, cacheBytes/RawBytes), cache: make(map[Hash]*list.Element)}, nil
+	s := &Store{dir: dir, limit: max(0, cacheBytes/RawBytes), cache: make(map[Hash]*list.Element)}
+	if err := s.initSpool(); err != nil {
+		return nil, err
+	}
+	return s, nil
 }
 
 func (s *Store) path(hash Hash) string { return filepath.Join(s.dir, hash.String()) }
@@ -163,9 +166,9 @@ func (s *Store) remember(hash Hash, block *Block) *Block {
 }
 
 func (s *Store) Compressed(hash Hash) ([]byte, error) {
-	s.mu.Lock()
-	pending := s.pending[hash]
-	s.mu.Unlock()
+	s.spool.mu.Lock()
+	pending := s.spool.pending[hash].data
+	s.spool.mu.Unlock()
 	if pending != nil {
 		return pending, nil
 	}
@@ -191,28 +194,21 @@ func (s *Store) Put(block *Block) (Hash, error) {
 		binary.BigEndian.PutUint16(out[6:], pixel.A)
 	}
 	hash := sha256.Sum256(raw)
-	s.mu.Lock()
-	buffered := s.pending[hash] != nil
-	s.mu.Unlock()
-	if buffered {
+	if s.touch(hash) {
 		return hash, nil
 	}
-	if _, err := os.Stat(s.path(hash)); errors.Is(err, os.ErrNotExist) || isStoragePressure(err) {
-		var buf bytes.Buffer
-		w, err := zlib.NewWriterLevel(&buf, zlib.BestSpeed)
-		if err != nil {
-			return Hash{}, err
-		}
-		if _, err := w.Write(raw); err != nil {
-			return Hash{}, err
-		}
-		if err := w.Close(); err != nil {
-			return Hash{}, err
-		}
-		if err := s.write(hash, buf.Bytes()); err != nil {
-			return Hash{}, err
-		}
-	} else if err != nil {
+	var buf bytes.Buffer
+	w, err := zlib.NewWriterLevel(&buf, zlib.BestSpeed)
+	if err != nil {
+		return Hash{}, err
+	}
+	if _, err := w.Write(raw); err != nil {
+		return Hash{}, err
+	}
+	if err := w.Close(); err != nil {
+		return Hash{}, err
+	}
+	if err := s.write(hash, buf.Bytes()); err != nil {
 		return Hash{}, err
 	}
 	return hash, nil
@@ -223,45 +219,6 @@ func (s *Store) Import(hash Hash, data []byte) error {
 		return err
 	}
 	return s.write(hash, data)
-}
-
-func (s *Store) write(hash Hash, data []byte) error {
-	err := s.writeDisk(hash, data)
-	if !isStoragePressure(err) {
-		return err
-	}
-	s.mu.Lock()
-	defer s.mu.Unlock()
-	if s.pending[hash] != nil {
-		return nil
-	}
-	if s.pendingBytes+len(data) > pendingLimit {
-		return errors.Join(ErrPendingFull, err)
-	}
-	if s.pending == nil {
-		s.pending = make(map[Hash][]byte)
-	}
-	s.pending[hash] = data
-	s.pendingBytes += len(data)
-	return nil
-}
-
-// FlushPending returns space to the bounded emergency buffer once the
-// spool can accept writes again. The recovery writer calls it after a
-// durable checkpoint so the spool cannot take priority over that save.
-func (s *Store) FlushPending(ctx context.Context) {
-	s.mu.Lock()
-	pending := maps.Clone(s.pending)
-	s.mu.Unlock()
-	for hash, data := range pending {
-		if ctx.Err() != nil || s.writeDisk(hash, data) != nil {
-			return
-		}
-		s.mu.Lock()
-		s.pendingBytes -= len(s.pending[hash])
-		delete(s.pending, hash)
-		s.mu.Unlock()
-	}
 }
 
 func (s *Store) writeDisk(hash Hash, data []byte) error {

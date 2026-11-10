@@ -1,4 +1,4 @@
-# DigiPhoto icon library
+# PhotoByte icon library
 
 [Browse the offline gallery](gallery.html) to search by tool name, asset ID, or reference app. The gallery previews 16, 24, 32 and 48 px and each card downloads the individual SVG.
 
@@ -20,7 +20,7 @@ The artwork uses an original 24 × 24 grid with transparent backgrounds, rounded
 
 ## Coverage
 
-The [catalog](catalog.json) lists the assets and maps reference tool names to equivalent DigiPhoto glyphs. It covers the current DigiPhoto tool rail and panels, the CS6-era Photoshop toolbar and documented additions, Krita 5.3's toolbox and brush engines, GIMP 3.2's toolbox, and selected DaVinci Resolve 21 workflows and Fusion node families. Equivalent actions can share an SVG. The files include artwork for planned capabilities as well as controls available in DigiPhoto today. [Photoshop tools](https://helpx.adobe.com/photoshop/desktop/get-started/set-up-toolbars-panels/customize-the-toolbar.html) · [Krita tools](https://docs.krita.org/en/reference_manual/tools.html) · [GIMP tools](https://docs.gimp.org/3.2/en/gimp-tools.html) · [DaVinci Resolve Fusion](https://www.blackmagicdesign.com/products/davinciresolve/fusion)
+The [catalog](catalog.json) lists the assets and maps reference tool names to equivalent PhotoByte glyphs. It covers the current PhotoByte tool rail and panels, the CS6-era Photoshop toolbar and documented additions, Krita 5.3's toolbox and brush engines, GIMP 3.2's toolbox, and selected DaVinci Resolve 21 workflows and Fusion node families. Equivalent actions can share an SVG. The files include artwork for planned capabilities as well as controls available in PhotoByte today. [Photoshop tools](https://helpx.adobe.com/photoshop/desktop/get-started/set-up-toolbars-panels/customize-the-toolbar.html) · [Krita tools](https://docs.krita.org/en/reference_manual/tools.html) · [GIMP tools](https://docs.gimp.org/3.2/en/gimp-tools.html) · [DaVinci Resolve Fusion](https://www.blackmagicdesign.com/products/davinciresolve/fusion)
 
 ## Add or update an icon
 

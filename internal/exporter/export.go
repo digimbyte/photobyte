@@ -13,11 +13,11 @@ import (
 	"strings"
 	"unicode"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/media"
-	"digiphoto/internal/publish"
-	"digiphoto/internal/render"
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/media"
+	"github.com/digimbyte/photobyte/internal/publish"
+	"github.com/digimbyte/photobyte/internal/render"
+	"github.com/digimbyte/photobyte/internal/tile"
 )
 
 type Exporter struct {
@@ -164,7 +164,7 @@ func batch(ctx context.Context, dest string, write func(string) error) error {
 		}
 		return err
 	}
-	dir, err := os.MkdirTemp(filepath.Dir(dest), ".digiphoto-export-*")
+	dir, err := os.MkdirTemp(filepath.Dir(dest), ".photobyte-export-*")
 	if err != nil {
 		return err
 	}

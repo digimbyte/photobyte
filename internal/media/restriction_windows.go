@@ -56,8 +56,9 @@ var codecSID = sync.OnceValues(func() (*windows.SID, error) {
 	userenv := windows.NewLazySystemDLL("userenv.dll")
 	create := userenv.NewProc("CreateAppContainerProfile")
 	derive := userenv.NewProc("DeriveAppContainerSidFromAppContainerName")
+	// Preserve the registered AppContainer SID across upgrades.
 	name, _ := windows.UTF16PtrFromString("DigiPhoto.Codec")
-	title, _ := windows.UTF16PtrFromString("DigiPhoto image codec")
+	title, _ := windows.UTF16PtrFromString("PhotoByte image codec")
 	var sid *windows.SID
 	hr, _, _ := create.Call(uintptr(unsafe.Pointer(name)), uintptr(unsafe.Pointer(title)),
 		uintptr(unsafe.Pointer(title)), 0, 0, uintptr(unsafe.Pointer(&sid)))
@@ -94,13 +95,13 @@ func stageBundle(executable, scratch string) (codecBundle, error) {
 	if err := grantCodecAccess(dir, sid, windows.FILE_TRAVERSE|windows.FILE_READ_ATTRIBUTES|windows.SYNCHRONIZE); err != nil {
 		return codecBundle{}, err
 	}
-	dest := filepath.Join(dir, "DigiPhotoCodec.exe")
+	dest := filepath.Join(dir, "PhotoByteCodec.exe")
 	if err := copyCodecBinary(executable, dest, sid); err != nil {
 		return codecBundle{}, err
 	}
-	dll := filepath.Join(filepath.Dir(executable), "digiphoto_codecs.dll")
+	dll := filepath.Join(filepath.Dir(executable), "photobyte_codecs.dll")
 	if _, err := os.Stat(dll); err == nil {
-		if err := copyCodecBinary(dll, filepath.Join(dir, "digiphoto_codecs.dll"), sid); err != nil {
+		if err := copyCodecBinary(dll, filepath.Join(dir, "photobyte_codecs.dll"), sid); err != nil {
 			return codecBundle{}, err
 		}
 	} else if !errors.Is(err, os.ErrNotExist) {
@@ -248,9 +249,12 @@ func (b codecBundle) start(stdio [3]*os.File, args []string) (windows.ProcessInf
 	env := utf16.Encode([]rune(strings.Join([]string{
 		"GOMEMLIMIT=448MiB", "GOMAXPROCS=1", "LOCALAPPDATA=" + os.Getenv("LOCALAPPDATA"), "SystemRoot=" + os.Getenv("SystemRoot"),
 	}, "\x00") + "\x00\x00"))
-	err = windows.CreateProcess(exe, line, nil, nil, true,
-		windows.EXTENDED_STARTUPINFO_PRESENT|windows.CREATE_UNICODE_ENVIRONMENT|windows.CREATE_SUSPENDED|windows.CREATE_NO_WINDOW,
-		&env[0], dir, &startup.StartupInfo, &proc)
+	flags := uint32(windows.EXTENDED_STARTUPINFO_PRESENT | windows.CREATE_UNICODE_ENVIRONMENT |
+		windows.CREATE_SUSPENDED | windows.CREATE_NO_WINDOW)
+	if len(args) > 0 && args[0] == "encode" {
+		flags |= windows.BELOW_NORMAL_PRIORITY_CLASS
+	}
+	err = windows.CreateProcess(exe, line, nil, nil, true, flags, &env[0], dir, &startup.StartupInfo, &proc)
 	runtime.KeepAlive(caps)
 	runtime.KeepAlive(stdio)
 	return proc, err

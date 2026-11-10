@@ -12,9 +12,9 @@ import (
 	"slices"
 	"time"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/project"
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/project"
+	"github.com/digimbyte/photobyte/internal/tile"
 
 	"gioui.org/app"
 	"gioui.org/f32"
@@ -91,7 +91,7 @@ type liveProbe struct {
 	sampleLayout             time.Duration
 	sampleLaidOut            bool
 	sampleAfter              uint64
-	sampleReceipt            app.DigiPhotoReceipt
+	sampleReceipt            app.PhotoByteReceipt
 	sampleMarker             uint8
 	capture                  *probeCapture
 	awaitLoss                uint32
@@ -106,7 +106,7 @@ type liveProbe struct {
 }
 
 func startReleaseProbe(u *window) bool {
-	path := os.Getenv("DIGIPHOTO_RELEASE_PROBE")
+	path := os.Getenv("PHOTOBYTE_RELEASE_PROBE")
 	if path == "" {
 		return false
 	}
@@ -114,8 +114,8 @@ func startReleaseProbe(u *window) bool {
 		exportPath: filepath.Join(filepath.Dir(path), "render.apng"),
 		savePath:   filepath.Join(filepath.Dir(path), "edited.dphoto")}
 	p.report = releaseReport{Width: 4096, Height: 4096, Layers: 8, GoWorkers: runtime.GOMAXPROCS(0), TimingMethod: "dwm_flush"}
-	if os.Getenv("DIGIPHOTO_PROBE_DESKTOP_PIXEL") == "1" {
-		p.capture = &probeCapture{trace: os.Getenv("DIGIPHOTO_PROBE_PHASES") == "1"}
+	if os.Getenv("PHOTOBYTE_PROBE_DESKTOP_PIXEL") == "1" {
+		p.capture = &probeCapture{trace: os.Getenv("PHOTOBYTE_PROBE_PHASES") == "1"}
 		p.report.TimingMethod = "desktop_pixel"
 	}
 	u.frameProbe = p.frame
@@ -208,7 +208,7 @@ func (p *liveProbe) frame(gtx layout.Context) {
 	}
 	v := &u.canvas
 	s := t.editor.Snapshot()
-	receipt := app.DigiPhotoPresentState()
+	receipt := app.PhotoBytePresentState()
 	if !p.zoomed {
 		if p.capture != nil && !p.exposed {
 			tick()
@@ -231,7 +231,7 @@ func (p *liveProbe) frame(gtx layout.Context) {
 			u.journal.Status(s.Project).Version != s.Version {
 			if time.Now().After(p.warmDeadline) {
 				p.finish(fmt.Sprintf("warm-up stalled: presents %d, occluded %d, visible revision %d, scale step %d, recovered revision %d",
-					receipt.Sequence, app.DigiPhotoOccludedFrames(), v.front.key.version, v.front.key.step, u.journal.Status(s.Project).Version))
+					receipt.Sequence, app.PhotoByteOccludedFrames(), v.front.key.version, v.front.key.step, u.journal.Status(s.Project).Version))
 				return
 			}
 			tick()
@@ -294,7 +294,7 @@ func (p *liveProbe) frame(gtx layout.Context) {
 			}
 		}
 		p.sampleStart = time.Time{}
-		p.sampleReceipt = app.DigiPhotoReceipt{}
+		p.sampleReceipt = app.PhotoByteReceipt{}
 	}
 	if p.awaitLoss != 0 {
 		if receipt.Losses < p.awaitLoss {
@@ -341,7 +341,7 @@ func (p *liveProbe) frame(gtx layout.Context) {
 		// The fallback must schedule its own repaint. The delayed callback
 		// only wakes the probe to report a failure if no repaint arrives.
 		time.AfterFunc(4*time.Second, u.win.Invalidate)
-		app.DigiPhotoInjectDeviceLoss()
+		app.PhotoByteInjectDeviceLoss()
 		return
 	}
 	if p.strokes >= 8 {
@@ -417,7 +417,7 @@ func (p *liveProbe) frame(gtx layout.Context) {
 			p.sampleMarker++
 			p.capture.requests <- pixelRequest{marker: p.sampleMarker, after: p.sampleAfter}
 		} else {
-			app.DigiPhotoMeasureNextPresent()
+			app.PhotoByteMeasureNextPresent()
 		}
 		p.sampleLayout = 0
 		p.sampleLaidOut = false
@@ -431,7 +431,7 @@ func (p *liveProbe) frame(gtx layout.Context) {
 	tick()
 }
 
-func (p *liveProbe) recordTiming(receipt app.DigiPhotoReceipt, observed *pixelObservation) {
+func (p *liveProbe) recordTiming(receipt app.PhotoByteReceipt, observed *pixelObservation) {
 	sinceInput := func(t time.Time) float64 {
 		if t.IsZero() {
 			return 0
@@ -457,7 +457,7 @@ func (p *liveProbe) writeTimings() {
 
 func (p *liveProbe) finish(failure string) {
 	p.report.HardwareSamples, p.report.WARPSamples = len(p.hardware), len(p.warp)
-	p.report.OccludedFrames = app.DigiPhotoOccludedFrames()
+	p.report.OccludedFrames = app.PhotoByteOccludedFrames()
 	p.report.HardwareP95, p.report.WARPP95 = percentile95(p.hardware), percentile95(p.warp)
 	p.report.HardwareLayout, p.report.WARPLayout = percentile95(p.hwLayout), percentile95(p.swLayout)
 	p.report.HardwarePresent, p.report.WARPPresent = percentile95(p.hwPresent), percentile95(p.swPresent)

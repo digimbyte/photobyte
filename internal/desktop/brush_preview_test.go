@@ -5,7 +5,7 @@ import (
 	"image/color"
 	"testing"
 
-	"digiphoto/internal/document"
+	"github.com/digimbyte/photobyte/internal/document"
 )
 
 func TestRasterBrushPreviewBlendsOverlapsOnce(t *testing.T) {

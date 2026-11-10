@@ -7,7 +7,7 @@ import (
 	"slices"
 	"strings"
 
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/tile"
 )
 
 type AddLayer struct {

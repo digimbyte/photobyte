@@ -9,7 +9,7 @@ $root = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 $cache = Join-Path $root '.cache'
 $testRoot = Join-Path $cache ('volume-test-' + [guid]::NewGuid().ToString('N'))
 $mount = Join-Path $testRoot 'mount'
-$image = Join-Path $testRoot 'DigiPhotoScratch.vhd'
+$image = Join-Path $testRoot 'PhotoByteScratch.vhd'
 $commands = Join-Path $testRoot 'create-vhd.txt'
 $fullPath = [IO.Path]::GetFullPath($image)
 if (-not $fullPath.StartsWith($root + [IO.Path]::DirectorySeparatorChar, [StringComparison]::OrdinalIgnoreCase) -or
@@ -19,8 +19,8 @@ if (-not $fullPath.StartsWith($root + [IO.Path]::DirectorySeparatorChar, [String
 New-Item -ItemType Directory -Path $mount -Force | Out-Null
 $attachAttempted = $false
 $mountRegistered = $false
-$previousMount = $env:DIGIPHOTO_FULL_VOLUME
-$previousID = $env:DIGIPHOTO_FULL_VOLUME_ID
+$previousMount = $env:PHOTOBYTE_FULL_VOLUME
+$previousID = $env:PHOTOBYTE_FULL_VOLUME_ID
 Push-Location -LiteralPath $root
 try {
     # DiskPart creates only the named image file. All partition and format
@@ -44,14 +44,14 @@ try {
     }
     $partition = Initialize-Disk -InputObject $disk -PartitionStyle MBR -PassThru |
         New-Partition -UseMaximumSize
-    $volume = Format-Volume -Partition $partition -FileSystem NTFS -NewFileSystemLabel DigiPhotoTest -Confirm:$false
+    $volume = Format-Volume -Partition $partition -FileSystem NTFS -NewFileSystemLabel PhotoByteTest -Confirm:$false
     Add-PartitionAccessPath -InputObject $partition -AccessPath ($mount + '\')
     $mountRegistered = $true
-    if (-not $volume.Path -or $volume.Size -gt 80MB -or $volume.FileSystemLabel -ne 'DigiPhotoTest') {
+    if (-not $volume.Path -or $volume.Size -gt 80MB -or $volume.FileSystemLabel -ne 'PhotoByteTest') {
         throw 'Could not verify the dedicated test volume.'
     }
-    $env:DIGIPHOTO_FULL_VOLUME = $mount + '\'
-    $env:DIGIPHOTO_FULL_VOLUME_ID = $volume.Path
+    $env:PHOTOBYTE_FULL_VOLUME = $mount + '\'
+    $env:PHOTOBYTE_FULL_VOLUME_ID = $volume.Path
     if (-not $env:GOMODCACHE) { $env:GOMODCACHE = Join-Path $cache 'gomod' }
     if (-not $env:GOCACHE) { $env:GOCACHE = Join-Path $cache 'gobuild' }
     if (-not $env:GOTMPDIR) { $env:GOTMPDIR = Join-Path $cache 'gotmp' }
@@ -60,8 +60,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Full-volume recovery test failed.' }
 }
 finally {
-    $env:DIGIPHOTO_FULL_VOLUME = $previousMount
-    $env:DIGIPHOTO_FULL_VOLUME_ID = $previousID
+    $env:PHOTOBYTE_FULL_VOLUME = $previousMount
+    $env:PHOTOBYTE_FULL_VOLUME_ID = $previousID
     try {
         if ($mountRegistered) { Remove-PartitionAccessPath -InputObject $partition -AccessPath ($mount + '\') }
     }

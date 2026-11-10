@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(DigiPhotoCodecs LANGUAGES C)
+project(PhotoByteCodecs LANGUAGES C)
 
 set(CMAKE_MSVC_RUNTIME_LIBRARY MultiThreaded)
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
@@ -29,6 +29,6 @@ endforeach()
 set(WEBP_USE_THREAD OFF CACHE BOOL "" FORCE)
 add_subdirectory("${DIGI_WEBP}" webp EXCLUDE_FROM_ALL)
 
-add_library(digiphoto_codecs SHARED bridge.c)
-target_include_directories(digiphoto_codecs PRIVATE "${DIGI_WEBP}/src")
-target_link_libraries(digiphoto_codecs PRIVATE digipng digicms webp)
+add_library(photobyte_codecs SHARED bridge.c)
+target_include_directories(photobyte_codecs PRIVATE "${DIGI_WEBP}/src")
+target_link_libraries(photobyte_codecs PRIVATE digipng digicms webp)

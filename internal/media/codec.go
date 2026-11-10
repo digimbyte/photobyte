@@ -14,9 +14,9 @@ import (
 	"math"
 	"time"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/render"
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/render"
+	"github.com/digimbyte/photobyte/internal/tile"
 
 	"github.com/HugoSmits86/nativewebp"
 )

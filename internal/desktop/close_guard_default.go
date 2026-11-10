@@ -1,4 +1,4 @@
-//go:build !windows || !digiphoto_win
+//go:build !windows || !photobyte_win
 
 package desktop
 

@@ -1,4 +1,4 @@
-module digiphoto
+module github.com/digimbyte/photobyte
 
 go 1.25.0
 

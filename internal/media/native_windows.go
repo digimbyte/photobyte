@@ -13,8 +13,8 @@ import (
 	"sync"
 	"unsafe"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/tile"
 
 	"github.com/HugoSmits86/nativewebp"
 	"golang.org/x/sys/windows"
@@ -25,7 +25,7 @@ var native = sync.OnceValues(func() (*windows.DLL, error) {
 	if err != nil {
 		return nil, err
 	}
-	path := filepath.Join(filepath.Dir(exe), "digiphoto_codecs.dll")
+	path := filepath.Join(filepath.Dir(exe), "photobyte_codecs.dll")
 	if _, err := os.Stat(path); errors.Is(err, os.ErrNotExist) {
 		return nil, nil // portable build uses the Go drivers
 	} else if err != nil {
@@ -33,7 +33,7 @@ var native = sync.OnceValues(func() (*windows.DLL, error) {
 	}
 	handle, err := windows.LoadLibraryEx(path, 0, windows.LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR|windows.LOAD_LIBRARY_SEARCH_SYSTEM32)
 	if err != nil {
-		return nil, fmt.Errorf("load DigiPhoto codec driver: %w", err)
+		return nil, fmt.Errorf("load PhotoByte codec driver: %w", err)
 	}
 	return &windows.DLL{Name: path, Handle: handle}, nil
 })

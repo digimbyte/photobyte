@@ -6,7 +6,7 @@ import (
 	"image"
 	"math"
 
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/tile"
 )
 
 type Point struct{ X, Y float64 }
@@ -53,6 +53,9 @@ func (c Paint) change(s *State) error {
 }
 
 func PrepareStroke(ctx context.Context, store *tile.Store, s *State, stroke Stroke) (Paint, error) {
+	if _, ok := s.Frame(stroke.Frame); !ok {
+		return Paint{}, errors.New("the stroke frame is no longer available")
+	}
 	layer, ok := s.Layer(stroke.Layer)
 	if !ok || (stroke.Mask && layer.Mask == nil) || (!stroke.Mask && layer.Kind != Raster) {
 		return Paint{}, errors.New("select a raster layer or mask to paint")

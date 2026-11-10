@@ -5,7 +5,7 @@ import (
 	"image/color"
 	"math"
 
-	"digiphoto/internal/document"
+	"github.com/digimbyte/photobyte/internal/document"
 
 	"gioui.org/f32"
 	"gioui.org/layout"

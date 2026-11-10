@@ -13,7 +13,7 @@ import (
 	"strings"
 	"time"
 
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/tile"
 )
 
 const (

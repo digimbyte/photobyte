@@ -4,7 +4,6 @@ package project
 import (
 	"context"
 	"database/sql"
-	"encoding/json"
 	"errors"
 	"fmt"
 	"net/url"
@@ -12,9 +11,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/publish"
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/publish"
+	"github.com/digimbyte/photobyte/internal/tile"
 
 	_ "modernc.org/sqlite"
 )
@@ -86,13 +85,13 @@ func validateSchema(ctx context.Context, db *sql.DB) error {
 		return err
 	}
 	if id != appID {
-		return errors.New("file is not a DigiPhoto project")
+		return errors.New("file is not a PhotoByte project")
 	}
 	if err := db.QueryRowContext(ctx, "PRAGMA user_version").Scan(&version); err != nil {
 		return err
 	}
 	if version != schema {
-		return fmt.Errorf("unsupported DigiPhoto project version %d", version)
+		return fmt.Errorf("unsupported PhotoByte project version %d", version)
 	}
 	return nil
 }
@@ -115,7 +114,7 @@ func create(ctx context.Context, path string, store *tile.Store, snapshot docume
 		}
 		return err
 	}
-	f, err := os.CreateTemp(filepath.Dir(path), ".digiphoto-*.dphoto")
+	f, err := os.CreateTemp(filepath.Dir(path), ".photobyte-*.dphoto")
 	if err != nil {
 		return err
 	}
@@ -156,10 +155,6 @@ func write(ctx context.Context, path string, store *tile.Store, snapshot documen
 	if err := snapshot.Validate(); err != nil {
 		return err
 	}
-	meta, err := json.Marshal(snapshot)
-	if err != nil || len(meta) > maxMetadata {
-		return errors.Join(err, errors.New("project metadata exceeds its size limit"))
-	}
 	db, err := open(path, "rw")
 	if err != nil {
 		return err
@@ -198,11 +193,11 @@ func write(ctx context.Context, path string, store *tile.Store, snapshot documen
 			opts.info.Manual = max(opts.info.Manual, current.Manual)
 		}
 	}
-	hashes, err := references(snapshot)
-	if err != nil {
+	if _, err := tx.ExecContext(ctx, "CREATE TEMP TABLE live_tiles(hash TEXT PRIMARY KEY) WITHOUT ROWID"); err != nil {
 		return err
 	}
-	if _, err := tx.ExecContext(ctx, "CREATE TEMP TABLE live_tiles(hash TEXT PRIMARY KEY) WITHOUT ROWID"); err != nil {
+	meta, hashes, err := writeMetadata(ctx, tx, snapshot)
+	if err != nil {
 		return err
 	}
 	for hash := range hashes {
@@ -303,8 +298,8 @@ func Load(ctx context.Context, path string, store *tile.Store) (document.Snapsho
 		Scan(&info.Project, &info.Version, &info.Manual, &info.OriginalPath, &meta); err != nil {
 		return document.Snapshot{}, Info{}, err
 	}
-	var snapshot document.Snapshot
-	if err := json.Unmarshal(meta, &snapshot); err != nil {
+	snapshot, err := readMetadata(ctx, tx, meta)
+	if err != nil {
 		return document.Snapshot{}, Info{}, err
 	}
 	if err := snapshot.Validate(); err != nil {

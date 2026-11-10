@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">PhotoByte</title>
+  <rect x="5" y="5" width="118" height="118" rx="25" fill="#151E2D" stroke="#354A64" stroke-width="2"/>
+  <path fill="#79CDF8" fill-rule="evenodd" d="M30 102V30h34c7 0 13.4 1.9 19 5.2V47h12v12h5c.2 1.5.3 3 .3 4.5 0 18.5-14.4 31.5-34 31.5H49v7a2 2 0 0 1-2 2H32a2 2 0 0 1-2-2ZM49 48v29h16.5C75 77 81 70.5 81 62.5S75 48 65.5 48Z"/>
+  <rect x="89" y="27" width="12" height="12" rx="2" fill="#B7A5F6"/>
+  <rect x="103" y="43" width="7" height="7" rx="1.5" fill="#79CDF8"/>
+</svg>

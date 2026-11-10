@@ -14,12 +14,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/exporter"
-	"digiphoto/internal/media"
-	"digiphoto/internal/project"
-	"digiphoto/internal/render"
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/exporter"
+	"github.com/digimbyte/photobyte/internal/media"
+	"github.com/digimbyte/photobyte/internal/project"
+	"github.com/digimbyte/photobyte/internal/render"
+	"github.com/digimbyte/photobyte/internal/tile"
 
 	"gioui.org/app"
 	"gioui.org/f32"
@@ -92,6 +92,11 @@ type window struct {
 	message    string
 	messageErr bool
 
+	strokeQueue     []*strokeWork
+	activeStroke    *strokeWork
+	finishedStrokes []*strokeWork
+	tileMaintenance tileMaintenance
+
 	buttons         map[string]*widget.Clickable
 	workspace       workspaceState
 	workspaceWriter *workspaceWriter
@@ -117,11 +122,11 @@ func Run(opts Options) error {
 	if err := os.MkdirAll(opts.DataDir, 0o700); err != nil {
 		return err
 	}
-	scratch, err := os.MkdirTemp(opts.DataDir, "session-*")
+	scratch, cleanScratch, err := newSessionScratch(opts.DataDir)
 	if err != nil {
 		return err
 	}
-	defer os.RemoveAll(scratch)
+	defer cleanScratch()
 	store, err := tile.NewStore(filepath.Join(scratch, "tiles"), 512<<20)
 	if err != nil {
 		return err
@@ -131,7 +136,7 @@ func Run(opts Options) error {
 		return err
 	}
 	win := new(app.Window)
-	win.Option(app.Title("DigiPhoto"), app.Size(unit.Dp(1380), unit.Dp(870)), app.MinSize(unit.Dp(920), unit.Dp(610)))
+	win.Option(app.Title("PhotoByte"), app.Size(unit.Dp(1380), unit.Dp(870)), app.MinSize(unit.Dp(920), unit.Dp(610)))
 	recDir := filepath.Join(opts.DataDir, "recovery")
 	journal, err := project.NewJournal(recDir, store, win.Invalidate)
 	if err != nil {
@@ -215,24 +220,30 @@ func Run(opts Options) error {
 				}
 			}
 			u.layout(gtx)
+			u.maintainTiles(e.Now)
 			if u.frameProbeAfterLayout != nil {
 				u.frameProbeAfterLayout(gtx)
 			}
 			e.Frame(gtx.Ops)
 		default:
-			if handle := windowHandle(e); handle != 0 {
+			if handle := windowHandle(e); handle != 0 && handle != u.native {
 				u.native = handle
+				setWindowIcon(handle)
 			}
 		}
 	}
 }
 
 func (u *window) requestClose() {
+	if u.strokesPending(nil) {
+		u.setMessage("", errors.New("wait for pending brush strokes before closing"))
+		return
+	}
 	for _, t := range u.tabs {
 		s := t.editor.Snapshot()
 		status := u.journal.Status(s.Project)
 		if s.Version != t.saved && (status.Version < s.Version || status.Err != nil) {
-			u.show("Edits are still in memory", "Save a copy or retry recovery before closing DigiPhoto.", nil, nil)
+			u.show("Edits are still in memory", "Save a copy or retry recovery before closing PhotoByte.", nil, nil)
 			return
 		}
 	}
@@ -332,7 +343,7 @@ func (u *window) receive() {
 			switch r.lane {
 			case editLane:
 				u.stopEdit = nil
-				u.canvas.pending = nil
+				u.activeStroke = nil
 			case saveLane:
 				u.stopSave = nil
 			default:
@@ -344,12 +355,16 @@ func (u *window) receive() {
 			if r.apply != nil && r.err == nil {
 				r.apply()
 			}
+			if errors.Is(r.err, tile.ErrPendingFull) {
+				u.tileMaintenance.force = true
+			}
 			if errors.Is(r.err, context.Canceled) {
 				u.setMessage("Job canceled", nil)
 			} else {
 				u.setMessage(r.message, r.err)
 			}
 		default:
+			u.startStroke()
 			return
 		}
 	}
@@ -471,12 +486,17 @@ func (u *window) apply(t *tab, cmd document.Command) bool {
 }
 
 func (u *window) goHistory(t *tab, i int) {
+	if u.strokesPending(t) {
+		u.setMessage("", errors.New("wait for pending brush strokes before changing history"))
+		return
+	}
 	s := t.editor.Snapshot()
 	if err := t.editor.History(u.ctx, s.Version, i); err != nil {
 		u.setMessage("", err)
 		return
 	}
 	t.bypass = 0
+	u.forgetStrokePreviews(t)
 	t.normalize()
 	u.schedule(t)
 }
@@ -500,17 +520,6 @@ func (u *window) levels(t *tab) {
 				u.activatePanel(panelProperties)
 			}
 		}}
-	})
-}
-
-func (u *window) paint(t *tab, stroke document.Stroke) {
-	s := t.editor.Snapshot()
-	u.runJob("Applying stroke", editLane, func(ctx context.Context) completion {
-		cmd, err := document.PrepareStroke(ctx, u.store, s.State(), stroke)
-		if err == nil {
-			err = t.editor.Apply(ctx, s.Version, cmd)
-		}
-		return completion{err: err, message: "Stroke applied", apply: func() { u.schedule(t) }}
 	})
 }
 

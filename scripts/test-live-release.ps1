@@ -9,21 +9,21 @@ New-Item -ItemType Directory -Path $run -Force | Out-Null
 $report = Join-Path $run 'report.json'
 
 if (-not $SkipBuild) {
-    if (-not (Test-Path -LiteralPath (Join-Path $root 'bin/digiphoto_codecs.dll'))) {
+    if (-not (Test-Path -LiteralPath (Join-Path $root 'bin/photobyte_codecs.dll'))) {
         & (Join-Path $PSScriptRoot 'build-codecs.ps1')
     }
     & (Join-Path $PSScriptRoot 'build.ps1') -GoOnly -ReleaseProbe -Console
 }
-$previousReport = $env:DIGIPHOTO_RELEASE_PROBE
+$previousReport = $env:PHOTOBYTE_RELEASE_PROBE
 $previousWorkers = $env:GOMAXPROCS
-$previousPixelProbe = $env:DIGIPHOTO_PROBE_DESKTOP_PIXEL
+$previousPixelProbe = $env:PHOTOBYTE_PROBE_DESKTOP_PIXEL
 try {
-    $env:DIGIPHOTO_RELEASE_PROBE = $report
+    $env:PHOTOBYTE_RELEASE_PROBE = $report
     $env:GOMAXPROCS = '8'
     if ($RequirePresentedSamples) {
-        $env:DIGIPHOTO_PROBE_DESKTOP_PIXEL = '1'
+        $env:PHOTOBYTE_PROBE_DESKTOP_PIXEL = '1'
     }
-    $exe = Join-Path $cache 'release-probe/DigiPhoto.exe'
+    $exe = Join-Path $cache 'release-probe/PhotoByte.exe'
     if (-not (Test-Path -LiteralPath $exe -PathType Leaf)) { throw 'Build the live probe before using -SkipBuild.' }
     $data = Join-Path $run 'workspace'
     # A regular native window is required to measure successful swap-chain
@@ -50,7 +50,7 @@ try {
     }
 }
 finally {
-    $env:DIGIPHOTO_RELEASE_PROBE = $previousReport
+    $env:PHOTOBYTE_RELEASE_PROBE = $previousReport
     $env:GOMAXPROCS = $previousWorkers
-    $env:DIGIPHOTO_PROBE_DESKTOP_PIXEL = $previousPixelProbe
+    $env:PHOTOBYTE_PROBE_DESKTOP_PIXEL = $previousPixelProbe
 }

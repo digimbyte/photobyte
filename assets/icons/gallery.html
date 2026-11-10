@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DigiPhoto Icon Library</title>
+  <title>PhotoByte Icon Library</title>
+  <link rel="icon" href="../brand/photobyte.svg" type="image/svg+xml">
   <style>
     :root {
       color-scheme: dark;
@@ -24,6 +25,8 @@
     }
     .inner, main { max-width: 1520px; margin: 0 auto; padding-inline: 24px; }
     header { padding: 28px 0 20px; }
+    .heading { display: flex; align-items: center; gap: 12px; }
+    .heading img { width: 44px; height: 44px; }
     h1 { margin: 0; font-size: clamp(24px, 3vw, 32px); }
     h2 { margin: 0; font-size: 18px; }
     p { margin: 6px 0 0; }
@@ -96,8 +99,11 @@
 </head>
 <body>
   <header class="inner">
-    <h1>DigiPhoto Icon Library</h1>
-    <p class="intro">Editable SVG glyphs for DigiPhoto’s tools and interface. Select a card to download its SVG. <a href="catalog.json">Catalog JSON</a></p>
+    <div class="heading">
+      <img src="../brand/photobyte.svg" alt="" width="44" height="44">
+      <h1>PhotoByte Icon Library</h1>
+    </div>
+    <p class="intro">Editable SVG glyphs for PhotoByte’s tools and interface. Select a card to download its SVG. <a href="catalog.json">Catalog JSON</a></p>
   </header>
   <div class="filters">
     <div class="inner">
@@ -5286,7 +5292,7 @@
   ],
   "references": [
     {
-      "product": "DigiPhoto",
+      "product": "PhotoByte",
       "scope": "Current tool rail, project controls, docks and panel actions.",
       "sources": [],
       "tools": [

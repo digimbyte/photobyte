@@ -8,9 +8,9 @@ import (
 	"testing"
 	"time"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/render"
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/render"
+	"github.com/digimbyte/photobyte/internal/tile"
 
 	"gioui.org/gpu/headless"
 	"gioui.org/io/input"
@@ -21,8 +21,8 @@ import (
 )
 
 func TestDesktopLayout(t *testing.T) {
-	if os.Getenv("DIGIPHOTO_VISUAL_SMOKE") == "" {
-		t.Skip("set DIGIPHOTO_VISUAL_SMOKE for native graphics testing")
+	if os.Getenv("PHOTOBYTE_VISUAL_SMOKE") == "" {
+		t.Skip("set PHOTOBYTE_VISUAL_SMOKE for native graphics testing")
 	}
 	store, err := tile.NewStore(filepath.Join(t.TempDir(), "tiles"), 4*tile.RawBytes)
 	if err != nil {
@@ -100,7 +100,7 @@ func TestDesktopLayout(t *testing.T) {
 		if labels < int(200*scale*scale) {
 			t.Fatalf("toolbar labels missing at %.0f%% scale", scale*100)
 		}
-		if path := os.Getenv("DIGIPHOTO_SCREENSHOT"); path != "" && scale == 1 {
+		if path := os.Getenv("PHOTOBYTE_SCREENSHOT"); path != "" && scale == 1 {
 			f, err := os.Create(path)
 			if err != nil {
 				t.Fatal(err)

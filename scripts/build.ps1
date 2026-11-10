@@ -43,30 +43,30 @@ try {
     $driver = $driver.Replace("import (`n", "import (`n`t`"os`"`n`t`"sync`"`n`t`"sync/atomic`"`n")
     $driver = $driver.Replace("type d3d11Context struct {`n", "type d3d11Context struct {`n`tdriverName string`n")
     $adapter = @'
-var digiPhotoDeviceLoss atomic.Uint32
-var digiPhotoReportOnce sync.Once
+var photoByteDeviceLoss atomic.Uint32
+var photoByteReportOnce sync.Once
 
 func init() {
-	digiPhotoPresentationLost = func() { digiPhotoDeviceLoss.Add(1) }
+	photoBytePresentationLost = func() { photoByteDeviceLoss.Add(1) }
 	drivers = append(drivers, gpuAPI{
 		priority: 1,
 		initializer: func(w *window) (context, error) {
-			losses := digiPhotoDeviceLoss.Load()
+			losses := photoByteDeviceLoss.Load()
 			if losses >= 4 {
 				return nil, fmt.Errorf("presentation device failed repeatedly")
 			}
-			if losses < 2 && os.Getenv("DIGIPHOTO_SOFTWARE") != "1" && os.Getenv("DIGIPHOTO_TEST_HARDWARE_FAILURE") != "1" {
-				if ctx, err := digiPhotoD3D11(w, d3d11.DRIVER_TYPE_HARDWARE, "hardware"); err == nil {
+			if losses < 2 && os.Getenv("PHOTOBYTE_SOFTWARE") != "1" && os.Getenv("PHOTOBYTE_TEST_HARDWARE_FAILURE") != "1" {
+				if ctx, err := photoByteD3D11(w, d3d11.DRIVER_TYPE_HARDWARE, "hardware"); err == nil {
 					return ctx, nil
 				}
 			}
 			// D3D_DRIVER_TYPE_WARP is 5 in the Windows D3D headers.
-			return digiPhotoD3D11(w, 5, "warp")
+			return photoByteD3D11(w, 5, "warp")
 		},
 	})
 }
 
-func digiPhotoD3D11(w *window, driver uint32, name string) (context, error) {
+func photoByteD3D11(w *window, driver uint32, name string) (context, error) {
 	hwnd, _, _ := w.HWND()
 	var flags uint32
 	if debugDirectX {
@@ -78,7 +78,7 @@ func digiPhotoD3D11(w *window, driver uint32, name string) (context, error) {
 	}
 	if name == "hardware" {
 		// Give interactive updates a single queued frame on this device.
-		if err := dev.DigiPhotoLimitFrameQueue(); err != nil {
+		if err := dev.PhotoByteLimitFrameQueue(); err != nil {
 			d3d11.IUnknownRelease(unsafe.Pointer(ctx), ctx.Vtbl.Release)
 			d3d11.IUnknownRelease(unsafe.Pointer(dev), dev.Vtbl.Release)
 			return nil, err
@@ -95,15 +95,15 @@ func digiPhotoD3D11(w *window, driver uint32, name string) (context, error) {
 
 '@
     $driver = $init.Replace($driver, $adapter + "`n")
-    $driver = $driver.Replace('d3d11.CreateSwapChain(dev, hwnd)', 'd3d11.DigiPhotoCreateSwapChain(dev, hwnd)')
-    $driver = $driver.Replace('c.dev.CreateRenderTargetView(texture)', 'c.dev.DigiPhotoCreateSRGBRenderTargetView(texture)')
+    $driver = $driver.Replace('d3d11.CreateSwapChain(dev, hwnd)', 'd3d11.PhotoByteCreateSwapChain(dev, hwnd)')
+    $driver = $driver.Replace('c.dev.CreateRenderTargetView(texture)', 'c.dev.PhotoByteCreateSRGBRenderTargetView(texture)')
     $driver = $driver.Replace('if c.renderTarget != nil {', "if c.renderTarget != nil {`n`t`tc.ctx.OMSetRenderTargets(nil, nil)")
-    $driver = $driver.Replace("if c.ctx != nil {`n", "if c.ctx != nil {`n`t`tc.ctx.DigiPhotoFlushReleasedBindings()`n")
+    $driver = $driver.Replace("if c.ctx != nil {`n", "if c.ctx != nil {`n`t`tc.ctx.PhotoByteFlushReleasedBindings()`n")
     $driver = $driver.Replace($present, @'
 err := wrapErr(c.swchain.Present(0, 0))
 	if err == nil {
-		digiPhotoReportOnce.Do(func() {
-			if report := os.Getenv("DIGIPHOTO_PRESENT_REPORT"); report != "" {
+		photoByteReportOnce.Do(func() {
+			if report := os.Getenv("PHOTOBYTE_PRESENT_REPORT"); report != "" {
 				os.WriteFile(report, []byte(c.driverName), 0600)
 			}
 		})
@@ -125,7 +125,7 @@ if ctx, ok := w.ctx.(*d3d11Context); ok {
 
 // Wait for the actual GPU commands when the desktop compositor cannot
 // display this window. This path is used only by the release probe.
-func (c *DeviceContext) DigiPhotoAwaitFrame(d *Device) error {
+func (c *DeviceContext) PhotoByteAwaitFrame(d *Device) error {
 	var desc [2]uint32 // D3D11_QUERY_EVENT, no miscellaneous flags
 	var query *IUnknown
 	code, _, _ := syscall.SyscallN(d.Vtbl.CreateQuery, uintptr(unsafe.Pointer(d)),
@@ -155,7 +155,7 @@ func (c *DeviceContext) DigiPhotoAwaitFrame(d *Device) error {
 }
 '@
         $driver = $driver.Replace('err := wrapErr(c.swchain.Present(0, 0))', @'
-if digiPhotoInjectedLoss.Swap(false) {
+if photoByteInjectedLoss.Swap(false) {
 		return wrapErr(d3d11.ErrorCode{Name: "Present", Code: d3d11.DXGI_ERROR_DEVICE_REMOVED})
 	}
 	started := time.Now()
@@ -164,21 +164,21 @@ if digiPhotoInjectedLoss.Swap(false) {
 	err := wrapErr(present)
 	displayed := present == nil
 	composited := false
-	if digiPhotoMeasureNext.Swap(false) && displayed {
+	if photoByteMeasureNext.Swap(false) && displayed {
 		// Confirm the submitted DirectX updates reached the compositor.
 		// Only probe samples wait; the shipping presenter never flushes.
-		code, _, _ := digiPhotoDwmFlush.Call()
+		code, _, _ := photoByteDwmFlush.Call()
 		composited = uint32(code) == 0
 	}
 	if code, ok := present.(d3d11.ErrorCode); ok && code.Code == d3d11.DXGI_STATUS_OCCLUDED {
-		digiPhotoOccludedFrames.Add(1)
-		if ready := c.ctx.DigiPhotoAwaitFrame(c.dev); ready != nil {
+		photoByteOccludedFrames.Add(1)
+		if ready := c.ctx.PhotoByteAwaitFrame(c.dev); ready != nil {
 			return wrapErr(ready)
 		}
 	}
 	if err == nil {
-		digiPhotoPresentReceipt.Store(&DigiPhotoReceipt{
-			Sequence: digiPhotoPresentSequence.Add(1),
+		photoBytePresentReceipt.Store(&PhotoByteReceipt{
+			Sequence: photoBytePresentSequence.Add(1),
 			Driver: c.driverName,
 			At: time.Now(),
 			DrawBegan: c.drawBegan,
@@ -186,13 +186,13 @@ if digiPhotoInjectedLoss.Swap(false) {
 			PresentCall: submitted.Sub(started),
 			Displayed: displayed,
 			Composited: composited,
-			Losses: digiPhotoDeviceLoss.Load(),
+			Losses: photoByteDeviceLoss.Load(),
 		})
 	}
 '@)
         $driver += @'
 
-type DigiPhotoReceipt struct {
+type PhotoByteReceipt struct {
 	Sequence uint64
 	Driver string
 	At time.Time
@@ -204,30 +204,30 @@ type DigiPhotoReceipt struct {
 	Losses uint32
 }
 
-var digiPhotoInjectedLoss atomic.Bool
-var digiPhotoMeasureNext atomic.Bool
-var digiPhotoDwmFlush = windows.NewLazySystemDLL("dwmapi.dll").NewProc("DwmFlush")
-var digiPhotoPresentSequence atomic.Uint64
-var digiPhotoOccludedFrames atomic.Uint64
-var digiPhotoPresentReceipt atomic.Pointer[DigiPhotoReceipt]
+var photoByteInjectedLoss atomic.Bool
+var photoByteMeasureNext atomic.Bool
+var photoByteDwmFlush = windows.NewLazySystemDLL("dwmapi.dll").NewProc("DwmFlush")
+var photoBytePresentSequence atomic.Uint64
+var photoByteOccludedFrames atomic.Uint64
+var photoBytePresentReceipt atomic.Pointer[PhotoByteReceipt]
 
-func DigiPhotoPresentState() DigiPhotoReceipt {
-	if current := digiPhotoPresentReceipt.Load(); current != nil {
+func PhotoBytePresentState() PhotoByteReceipt {
+	if current := photoBytePresentReceipt.Load(); current != nil {
 		return *current
 	}
-	return DigiPhotoReceipt{}
+	return PhotoByteReceipt{}
 }
 
-func DigiPhotoInjectDeviceLoss() { digiPhotoInjectedLoss.Store(true) }
-func DigiPhotoMeasureNextPresent() { digiPhotoMeasureNext.Store(true) }
-func DigiPhotoOccludedFrames() uint64 { return digiPhotoOccludedFrames.Load() }
+func PhotoByteInjectDeviceLoss() { photoByteInjectedLoss.Store(true) }
+func PhotoByteMeasureNextPresent() { photoByteMeasureNext.Store(true) }
+func PhotoByteOccludedFrames() uint64 { return photoByteOccludedFrames.Load() }
 '@
     }
     $first = 'func (w *Window) validateAndProcess'
-    $window = $window.Replace($first, "var digiPhotoPresentationLost func()`n`n$first")
+    $window = $window.Replace($first, "var photoBytePresentationLost func()`n`n$first")
     $window = $window.Replace($handleLoss, $handleLoss + @'
-				if digiPhotoPresentationLost != nil {
-					digiPhotoPresentationLost()
+				if photoBytePresentationLost != nil {
+					photoBytePresentationLost()
 				}
 
 '@)
@@ -236,8 +236,8 @@ err = w.ctx.Present()
 			w.ctx.Unlock()
 			if errors.Is(err, gpu.ErrDeviceLost) {
 				w.destroyGPU()
-				if digiPhotoPresentationLost != nil {
-					digiPhotoPresentationLost()
+				if photoBytePresentationLost != nil {
+					photoBytePresentationLost()
 				}
 				w.setNextFrame(time.Now())
 				return nil
@@ -259,7 +259,7 @@ runtime.LockOSThread()
 '@)
     $events = $events.Replace('case windows.WM_DESTROY:', @'
 case windows.WM_CLOSE:
-		if handler := digiPhotoCloseHandler.Load(); handler != nil {
+		if handler := photoByteCloseHandler.Load(); handler != nil {
 			(*handler)()
 			return 0
 		}
@@ -268,14 +268,14 @@ case windows.WM_CLOSE:
 '@)
     $events += @'
 
-var digiPhotoCloseHandler atomic.Pointer[func()]
+var photoByteCloseHandler atomic.Pointer[func()]
 
-func DigiPhotoSetCloseHandler(handler func()) {
+func PhotoByteSetCloseHandler(handler func()) {
 	if handler == nil {
-		digiPhotoCloseHandler.Store(nil)
+		photoByteCloseHandler.Store(nil)
 		return
 	}
-	digiPhotoCloseHandler.Store(&handler)
+	photoByteCloseHandler.Store(&handler)
 }
 '@
     $json = Join-Path $overlayDir 'overlay.json'
@@ -303,12 +303,12 @@ func DigiPhotoSetCloseHandler(handler func()) {
 
     $flags = '-X main.warpBuild=enabled'
     if (-not $Console) { $flags += ' -H=windowsgui' }
-    $tags = if ($ReleaseProbe) { @('-tags', 'digiphoto_win,releaseprobe') } else { @('-tags', 'digiphoto_win') }
-    go build -mod=readonly "-modfile=$buildMod" -trimpath "-overlay=$json" "-ldflags=$flags" @tags -o (Join-Path $out 'DigiPhoto.exe') ./cmd/digiphoto
-    if ($LASTEXITCODE -ne 0) { throw 'DigiPhoto build failed.' }
+    $tags = if ($ReleaseProbe) { @('-tags', 'photobyte_win,releaseprobe') } else { @('-tags', 'photobyte_win') }
+    go build -mod=readonly "-modfile=$buildMod" -trimpath "-overlay=$json" "-ldflags=$flags" @tags -o (Join-Path $out 'PhotoByte.exe') ./cmd/photobyte
+    if ($LASTEXITCODE -ne 0) { throw 'PhotoByte build failed.' }
     if (-not $GoOnly) { & (Join-Path $PSScriptRoot 'build-codecs.ps1') }
     if ($ReleaseProbe) {
-        Copy-Item -LiteralPath (Join-Path $root 'bin/digiphoto_codecs.dll') -Destination $out -Force
+        Copy-Item -LiteralPath (Join-Path $root 'bin/photobyte_codecs.dll') -Destination $out -Force
     }
 }
 finally {

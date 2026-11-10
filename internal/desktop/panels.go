@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/tile"
 
 	"gioui.org/layout"
 	"gioui.org/op"

@@ -8,15 +8,16 @@ $ErrorActionPreference = 'Stop'
 $root = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 $cache = Join-Path $root '.cache'
 $bin = Join-Path $root 'bin'
-$zip = Join-Path $bin "DigiPhoto-$Version-windows-x64.zip"
+$zip = Join-Path $bin "PhotoByte-$Version-windows-x64.zip"
 if (Test-Path -LiteralPath $zip) { throw "The $Version Windows package already exists." }
 if (-not $SkipBuild) { & (Join-Path $PSScriptRoot 'build.ps1') }
 
-$exe = Join-Path $bin 'DigiPhoto.exe'
-$codecs = Join-Path $bin 'digiphoto_codecs.dll'
+$exe = Join-Path $bin 'PhotoByte.exe'
+$codecs = Join-Path $bin 'photobyte_codecs.dll'
 $licenses = Join-Path $bin 'licenses'
 $readme = Join-Path $root 'README.md'
-foreach ($file in @($exe, $codecs, $readme)) {
+$mark = Join-Path $root 'assets/brand/photobyte.svg'
+foreach ($file in @($exe, $codecs, $readme, $mark)) {
     if (-not (Test-Path -LiteralPath $file -PathType Leaf)) { throw "Missing release input $file." }
 }
 if (-not (Test-Path -LiteralPath (Join-Path $licenses 'libwebp-PATENTS.txt') -PathType Leaf)) {
@@ -27,9 +28,9 @@ if (-not $env:GOCACHE) { $env:GOCACHE = Join-Path $cache 'gobuild' }
 
 Push-Location -LiteralPath $root
 try {
-    $modules = @(go list -mod=readonly -deps -f '{{if .Module}}{{.Module.Path}}|{{.Module.Dir}}{{end}}' ./cmd/digiphoto)
+    $modules = @(go list -mod=readonly -deps -f '{{if .Module}}{{.Module.Path}}|{{.Module.Dir}}{{end}}' ./cmd/photobyte)
     if ($LASTEXITCODE -ne 0) { throw 'Could not enumerate the linked Go modules.' }
-    foreach ($entry in ($modules | Where-Object { $_ -and -not $_.StartsWith('digiphoto|') } | Sort-Object -Unique)) {
+    foreach ($entry in ($modules | Where-Object { $_ -and -not $_.StartsWith('github.com/digimbyte/photobyte|') } | Sort-Object -Unique)) {
         $module, $dir = $entry -split '\|', 2
         if (-not $dir) { continue }
         $name = $module -replace '[^a-zA-Z0-9._-]', '_'
@@ -43,6 +44,13 @@ try {
     $stage = Join-Path $bin ('.release-' + [guid]::NewGuid().ToString('N') + '.zip')
     try {
         Compress-Archive -LiteralPath @($exe, $codecs, $licenses, $readme) -DestinationPath $stage -CompressionLevel Optimal
+        $archive = [IO.Compression.ZipFile]::Open($stage, [IO.Compression.ZipArchiveMode]::Update)
+        try {
+            [IO.Compression.ZipFileExtensions]::CreateEntryFromFile($archive, $mark, 'assets/brand/photobyte.svg') | Out-Null
+        }
+        finally {
+            $archive.Dispose()
+        }
         Move-Item -LiteralPath $stage -Destination $zip
     }
     finally {

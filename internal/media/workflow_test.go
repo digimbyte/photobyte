@@ -15,12 +15,12 @@ import (
 	"strings"
 	"testing"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/exporter"
-	"digiphoto/internal/media"
-	"digiphoto/internal/project"
-	"digiphoto/internal/render"
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/exporter"
+	"github.com/digimbyte/photobyte/internal/media"
+	"github.com/digimbyte/photobyte/internal/project"
+	"github.com/digimbyte/photobyte/internal/render"
+	"github.com/digimbyte/photobyte/internal/tile"
 )
 
 var codecProbe func(string) error
@@ -43,9 +43,9 @@ func TestMain(m *testing.M) {
 }
 
 func TestWindowsICCConversion(t *testing.T) {
-	exe, icc := os.Getenv("DIGIPHOTO_TEST_EXE"), os.Getenv("DIGIPHOTO_TEST_ICC")
+	exe, icc := os.Getenv("PHOTOBYTE_TEST_EXE"), os.Getenv("PHOTOBYTE_TEST_ICC")
 	if exe == "" || icc == "" {
-		t.Skip("set DIGIPHOTO_TEST_EXE and DIGIPHOTO_TEST_ICC for the native color check")
+		t.Skip("set PHOTOBYTE_TEST_EXE and PHOTOBYTE_TEST_ICC for the native color check")
 	}
 	profile, err := os.ReadFile(icc)
 	if err != nil {
@@ -115,7 +115,7 @@ func TestPNGEditSaveRecoverAndExport(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if path := os.Getenv("DIGIPHOTO_TEST_EXE"); path != "" {
+	if path := os.Getenv("PHOTOBYTE_TEST_EXE"); path != "" {
 		exe = path
 	}
 	codec := media.NewBroker(exe, dir)

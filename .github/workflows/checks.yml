@@ -26,14 +26,14 @@ jobs:
         shell: pwsh
         run: |
           .\scripts\build.ps1
-          "DIGIPHOTO_TEST_EXE=$((Resolve-Path .\bin\DigiPhoto.exe).Path)" >> $env:GITHUB_ENV
+          "PHOTOBYTE_TEST_EXE=$((Resolve-Path .\bin\PhotoByte.exe).Path)" >> $env:GITHUB_ENV
           $profile = Join-Path $env:SystemRoot 'System32/spool/drivers/color/sRGB Color Space Profile.icm'
           if (Test-Path -LiteralPath $profile) {
-              "DIGIPHOTO_TEST_ICC=$profile" >> $env:GITHUB_ENV
+              "PHOTOBYTE_TEST_ICC=$profile" >> $env:GITHUB_ENV
           }
       - name: Build macOS development executable
         if: runner.os == 'macOS'
-        run: go build -o "$RUNNER_TEMP/DigiPhoto" ./cmd/digiphoto
+        run: go build -o "$RUNNER_TEMP/PhotoByte" ./cmd/photobyte
       - name: Test
         run: go test ./...
       - name: Vet

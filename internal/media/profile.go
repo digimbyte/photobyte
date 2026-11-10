@@ -7,7 +7,7 @@ import (
 	"errors"
 	"io"
 
-	"digiphoto/internal/document"
+	"github.com/digimbyte/photobyte/internal/document"
 )
 
 const maxProfile = 4 << 20

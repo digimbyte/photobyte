@@ -12,8 +12,8 @@ import (
 	"io"
 	"os"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/tile"
 )
 
 const (

@@ -1,7 +1,7 @@
-//go:build windows && digiphoto_win
+//go:build windows && photobyte_win
 
 package desktop
 
 import "gioui.org/app"
 
-func installCloseHandler(handler func()) { app.DigiPhotoSetCloseHandler(handler) }
+func installCloseHandler(handler func()) { app.PhotoByteSetCloseHandler(handler) }

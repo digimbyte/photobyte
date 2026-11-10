@@ -6,10 +6,10 @@ import (
 	"image/color"
 	"math"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/media"
-	"digiphoto/internal/render"
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/media"
+	"github.com/digimbyte/photobyte/internal/render"
+	"github.com/digimbyte/photobyte/internal/tile"
 
 	"gioui.org/layout"
 	"gioui.org/op/clip"

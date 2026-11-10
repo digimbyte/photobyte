@@ -9,15 +9,15 @@ import (
 	"testing"
 	"time"
 
-	"digiphoto/internal/document"
-	"digiphoto/internal/tile"
+	"github.com/digimbyte/photobyte/internal/document"
+	"github.com/digimbyte/photobyte/internal/tile"
 
 	"golang.org/x/sys/windows"
 )
 
 func TestRecoveryOnFullVolume(t *testing.T) {
-	root := os.Getenv("DIGIPHOTO_FULL_VOLUME")
-	expectedID := os.Getenv("DIGIPHOTO_FULL_VOLUME_ID")
+	root := os.Getenv("PHOTOBYTE_FULL_VOLUME")
+	expectedID := os.Getenv("PHOTOBYTE_FULL_VOLUME_ID")
 	if root == "" && expectedID == "" {
 		t.Skip("use scripts/test-full-volume.ps1 to mount a disposable test volume")
 	}
